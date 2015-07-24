@@ -1,0 +1,44 @@
+body {
+	background: #333333;
+	color: #fefefe;
+	font: 16px "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+}
+
+p {
+	font: 16px "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+}
+
+a.plain:link
+{ color: #333; text-decoration: none }
+a.plain:active
+{ color: #333; text-decoration: none }
+a.plain:visited
+{ color: #333; text-decoration: none }
+a.plain:hover
+{ color: #333; text-decoration: none }
+
+a:hover {
+	background: transparent;
+}
+
+.status-bar {
+    height: 60px;
+}
+
+.about-icon {
+    float: left;
+    margin-right: 12px;
+}
+
+.thumbnail {
+	background: #4F4F4F;
+}
+
+.thumbnail:hover {
+	background: #606060;
+}
+
+.title {
+	text-align: center;
+	font-weight: 200;
+}

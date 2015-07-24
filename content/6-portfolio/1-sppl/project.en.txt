@@ -1,0 +1,23 @@
+Title: Schiller Park Public Library
+
+----
+
+Text: 
+
+(img:spplpreview.jpg alt:schiller park public library preview)
+
+As the computer clerk at the Schiller Park Public Library, part of my responsibilities are to maintain the website. The original website we had was something made in ms front page, and horrendous. I (not so quickly) made a new site that got the basics of what we were looking for down. But, I wasn't satisfied. So in spare time, I designed and developed a new site from scratch.
+ 
+You can see all the code on my (link: http://github.com/peterbinks text: GitHub account).
+
+<h4> <a href="http://schillerparklibrary.org">Visit The Site</a> </h4>
+
+(img:sppl.jpg alt:sppl homepage)
+
+----
+
+Url: http://schillerparklibrary.org
+
+----
+
+Tags: Web,Design
