@@ -2,8 +2,8 @@ Title: Home
 
 ----
 
-Text: 
+Text:
 
-# Hi there, (link: /about text: I'm Peter.) 
+# Hi there, (link: /about text: I'm Peter.)
 ## I'm a web designer-developer specializing in modular design systems & front-end architecture.
 ### Currently I'm working as a front end designer at (link: http://neotericdesign.com text: Neoteric)
