@@ -1,12 +1,6 @@
 # peterbinks.net
 Peter Binkowski's personal site.
 
-#### Contents
-- Takes Bower packages into account
-- Lints and uglifies Javascript
-- Compiles and autoprefixes SCSS
-- Generates a custom Modernizr build with gulp-modernizr
-
 ## Installation
 ```bash
   # install npm and all modules.
