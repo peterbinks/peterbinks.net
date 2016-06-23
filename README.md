@@ -9,7 +9,7 @@ Peter Binkowski's personal site.
 ## Installation
 ```bash
   # install npm and all modules.
-  $ npm install
+  $ sudo npm install gulp
 
   # Build all assets, connect to a PHP server and start watching the files.
   $ gulp
