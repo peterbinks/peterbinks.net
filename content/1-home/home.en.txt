@@ -1,8 +1,0 @@
-Title: Home
-
-----
-
-Text: 
-
-##Hi there, (link: /about text: I'm Peter.) I make clear, well designed, and above all, useful web sites.
-###I’m a self taught designer & developer.  I've worked with small businesses, start-ups, and non-profits, and I'd love to work with you, <a href="/hire-me" >let's talk</a>.

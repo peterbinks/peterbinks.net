@@ -1,0 +1,33 @@
+/* Typography
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  font-family: "fira-sans-1","fira-sans-2", sans-serif;
+}
+h1 { font-size: 2rem; line-height: 1.2; }
+h2 { font-size: 1.75rem; line-height: 1.25;}
+h3 { font-size: 1.5rem; line-height: 1.3;}
+h4 { font-size: 1rem; line-height: 1.35;}
+h5 { font-size: 875rem; line-height: 1.5;}
+h6 { font-size: .75rem; line-height: 1.6; }
+
+p {
+  margin-top: 0; }
+
+  /* Code
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+  code {
+    padding: .2rem .5rem;
+    margin: 0 .2rem;
+    font-family: 'Source Code Pro', 'Inconsolata', menlo, monospace;
+    font-size: 90%;
+    white-space: nowrap;
+    background: #F1F1F1;
+    border: 1px solid #E1E1E1;
+    border-radius: 4px; }
+  pre > code {
+    display: block;
+    padding: 1rem 1.5rem;
+    white-space: pre; }

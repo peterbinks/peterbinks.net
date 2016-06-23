@@ -1,0 +1,137 @@
+#nav-icon {
+  color: #555;
+  cursor: pointer;
+  float: right;
+  margin: 1.5rem;
+  position: relative;
+  width: 40px;
+  display: block;
+}
+
+#nav-icon div{
+  backface-visibility: hidden;
+  background: #555;
+  border-radius: 1px;
+  height: 5px;
+  margin-bottom: 7px;
+  width: 100%;
+  -webkit-transition: all 50ms ease-in-out;
+  -moz-transition: all 50ms ease-in-out;
+  -ms-transition: all 50ms ease-in-out;
+  -o-transition: all 50ms ease-in-out;
+  transition: all 50ms ease-in-out;
+}
+
+#nav-icon .two {
+  -webkit-transition: opacity 50ms ease-out;
+  -moz-transition: opacity 50ms ease-out;
+  -ms-transition: opacity 50ms ease-out;
+  -o-transition: opacity 50ms ease-out;
+  transition: opacity 50ms ease-out;
+}
+
+#nav-icon.active .one {
+  -webkit-transform: rotate(45deg)
+  translate(5px, 10px);
+  -moz-transform: rotate(45deg)
+  translate(5px, 10px);
+  -ms-transform: rotate(45deg)
+  translate(5px, 10px);
+  -o-transform: rotate(45deg)
+  translate(5px, 10px);
+  transform: rotate(45deg)
+  translate(5px, 10px);
+}
+
+#nav-icon.active .two {
+  opacity: 0;
+}
+
+#nav-icon.active .three {
+  -webkit-transform: rotate(-45deg)
+    translate(7px, -12px);
+  -moz-transform: rotate(-45deg)
+    translate(7px, -12px);
+  -ms-transform: rotate(-45deg)
+    translate(7px, -12px);
+  -o-transform: rotate(-45deg)
+    translate(7px, -12px);
+  transform: rotate(-45deg)
+    translate(7px, -12px);
+
+}
+
+nav[role=navigation] {
+    -webkit-transition: all 200ms ease-out;
+    -moz-transition: all 200ms ease-out;
+    -ms-transition: all 200ms ease-out;
+    -o-transition: all 200ms ease-out;
+    transition: all 200ms ease-out;
+
+}
+
+.js nav[role=navigation] {
+    overflow: hidden;
+    max-height: 0;
+}
+
+nav[role=navigation].active {
+    max-height: 100vh;
+    display: block;
+    clear: both;
+    width: 100%;
+    margin-top: -9px;
+    text-align: center;
+    position: relative;
+    background-color: #fff;
+}
+
+nav[role=navigation] ul {
+    margin: 0;
+    padding: 0;
+
+}
+
+nav[role=navigation] li {
+    display: block;
+    z-index: 99999;
+
+}
+
+
+nav[role=navigation] li a {
+    display: block;
+    clear: both;
+    padding: 0.8rem;
+}
+
+nav[role=navigation] li a h4:hover {
+    border: 0;
+}
+
+@media screen and (min-width: 48.25rem) {
+      #nav-icon {
+         display: none;
+      }
+      .js nav[role=navigation] {
+        max-height: none;
+      }
+      nav[role=navigation] ul {
+        margin: 0 ;
+        border: 0;
+      }
+
+      nav[role=navigation]  li {
+        display: inline-block;
+        margin: 0;
+      }
+
+      nav[role=navigation] ul li :first-child {
+        padding-left: 0;
+        margin-left: 0;
+      }
+
+      nav[role=navigation] li a {
+        border: 0;
+      }
+}

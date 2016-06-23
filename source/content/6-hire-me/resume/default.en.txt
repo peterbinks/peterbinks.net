@@ -1,0 +1,81 @@
+Title: Resumé
+
+----
+
+Text: 
+
+<link rel="stylesheet" href="http://peterbinks.net/assets/styles/pbar.min.css">
+(columns...)
+###Designer/Developer
+
+Chicago-area
+
+Email: peter@peterbinks.net
+Phone: 224-425-8575
+
+(link:http://twitter.com/peterbinks text: Twitter)
+(link:http://dribbble.com/peterbinks text: Dribbble)
+(link:http://linkedin.com/in/peterbinkowski text: LinkedIn)
+(link:http://behance.net/peterbinks text: Behance)
+(link:http://github.com/peterbinks text: GitHub)
+
+
+###Skills:
+- HTML5
+
+- CSS3
+
+- SASS
+
+- Javascript (jQuery, Backbone.js)
+
+- GSAP
+
+- Rails
+
+- HTML Emails
+
+- Photoshop
+
+- Illustrator
+
+- PHP
+
+###Languages:
+
+- English
+- Polish
+
+###(link:https://www.dropbox.com/s/240drl23ekbu9q9/resume.pdf?dl=0 text:Download My Resumé )
+
+++++
+
+Hi there! I’m designer with 4 years of experience in Web, UX, and Brand design. I love distilling complex problems to their simplest forms, and designing frameworks and templates that are reusable and scalable.
+
+##Experience
+**Front-End Developer @ Neoteric Design **
+*Dec 2015 – Present  *
+
+**Front-End Developer @ Wojo Design **
+*June 2015 – Present (contractor) *
+Mainly worked on a large Expression Engine project. Writing out HTML templates, SASS, JS and the general front-end development.
+
+**Front End Developer  @ Olive Street Design**
+*Nov 2013 – March 2014 (contractor)*
+Build out websites based on client needs and mockups given to me by the design team.
+
+**Designer | Front End Developer @ Freelance **
+*January 2010 – Present*
+Building websites for small to medium businesses around Chicago.
+
+##Education
+**Triton College:**
+- Associates in Arts
+
+**University of Illinois Chicago:**
+*Fall 2009*
+- No Degree
+
+(link:http://teamtreehouse.com/peterbinkowski text:**Treehouse Profile**)
+
+(...columns)
