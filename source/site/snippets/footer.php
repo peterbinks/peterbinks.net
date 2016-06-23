@@ -1,25 +1,15 @@
 <footer>
 <div class="container">
-  <div id="pages">
-      <h3>Stuff &amp; Things:</h3>
+  <div class="columns six offset-by-three places">
+    <h3>How To Stalk Me:</h3>
       <ul>
-          <li><a href="/about">About</a></li>
-          <li><a href="/reading">Reading</a></li>
-          <li><a href="/quotes">Quotes</a></li>
-          <li><a href="/portfolio">Portfolio</a></li>
-          <li><a href="/hire-me">Hire Me</a></li>
-      </ul>
-  </div>
-      <div id="places">
-      <h3>How To Stalk Me:</h3>
-        <ul>
-          <li id="twitterIcon"></a><a href="http://www.twitter.com/peterbinks">Twitter</a></li>
-          <li id="dribbbleIcon"><a href="http://www.dribbble.com/peterbinks">Dribbble</a></li>
-          <li id="instagramIcon"><a href="http://www.instagram.com/peterbinks">Instagram</a></li>
-          <li id="googleIcon"></i><a href="http://behance.net/peterbinks">Behance</a></li>
-          <li id="linkedinIcon"><a href="http://www.linkedin.com/in/peterbinkowski" >LinkedIn</a></li>
-          <li id="emailIcon"><a href="mailto:peter@peterbinks.net">Email</a><li>
-        </ul>
+        <li id="twitterIcon"></a><a href="http://www.twitter.com/peterbinks">Twitter</a></li>
+        <li id="dribbbleIcon"><a href="http://www.dribbble.com/peterbinks">Dribbble</a></li>
+        <li id="instagramIcon"><a href="http://www.instagram.com/peterbinks">Instagram</a></li>
+        <li id="googleIcon"></i><a href="http://behance.net/peterbinks">Behance</a></li>
+        <li id="linkedinIcon"><a href="http://www.linkedin.com/in/peterbinkowski" >LinkedIn</a></li>
+        <li id="emailIcon"><a href="mailto:peter@peterbinks.net">Email</a></li>
+      <ul>
   </div>
   <div class="copyright">
     <?php echo kirbytext($site->copyright("- Peter Binokwski"));  ?> <p>Have a great <span id="day"></span></p>

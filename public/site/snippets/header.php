@@ -12,8 +12,13 @@
   <meta name="google-site-verification" content="iKFRMbgwVCUYu8_PEQuJR_iJ87CkvkLDPU4pYleuxiw" />
   <?php echo css('assets/styles/normalize.css') ?>
   <?php echo css('assets/styles/main.css') ?>
-  <script src="//use.typekit.net/ibz5ikj.js"></script>
-  <script>try{Typekit.load();}catch(e){}</script>
+  <script src="https://use.typekit.net/ibz5ikj.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <style>
+  .wf-loading h1, .wf-loading h2, .wf-loading h3, .wf-loading h4, .wf-loading p, .wf-loading li, .wf-loading blockquote {
+      visibility: hidden;
+  }
+  </style>
 </head>
 
 <body>
