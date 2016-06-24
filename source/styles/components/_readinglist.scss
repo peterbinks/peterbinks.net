@@ -1,0 +1,17 @@
+ul.readinglist {
+    li {
+        display: inline-block;
+        clear: both;
+        list-style: none;
+        margin: 0 0 3rem 0;
+        img {
+            border: 1px solid #111;
+            float: left;
+        }
+        p {
+            width: 60%;
+            float: left;
+            padding: 2rem;
+        }
+    }
+}

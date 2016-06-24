@@ -5,7 +5,7 @@ Title: Home
 Intro:
 
 ## Hi there, (link: /about text: I'm Peter.)
-# I'm a web designer-developer specializing in modular design systems & front-end architecture.
+# I'm a web designer-developer who likes front end architecture, web animations, and donuts.
 
 ----
 

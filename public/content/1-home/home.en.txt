@@ -2,14 +2,14 @@ Title: Home
 
 ----
 
-Intro: 
+Intro:
 
 ## Hi there, (link: /about text: I'm Peter.)
-# I'm a web designer-developer specializing in modular design systems & front-end architecture.
+# I'm a web designer-developer who likes front end architecture, web animations, and donuts.
 
 ----
 
-Currently: 
+Currently:
 
 ### Currently I am:
 - #### Working as a front end designer at (link: http://neotericdesign.com text: Neoteric).

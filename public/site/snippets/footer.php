@@ -13,25 +13,13 @@
   </div>
   <div class="copyright">
      <span>&copy; 2016</span>
-     <p>Have a great <span id="day"></span></p>
+     <span>Have a great <span id="day"></span></span>
   </div>
 </div>
 </footer>
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-  <script type="text/javascript">
-      $(document).ready(function() {
-      $('body').addClass('js');
-      var $menu = $('#menu'),
-        $menulink = $('#nav-icon');
-
-    $menulink.click(function() {
-      $menu.toggleClass('active'),
-      $menulink.toggleClass('active');
-      return false;
-    });});
-  </script>
 
  <script>
   var _gaq=[['_setAccount','UA-15758586-2'],['_trackPageview']];
