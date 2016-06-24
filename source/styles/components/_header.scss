@@ -23,21 +23,12 @@ header nav ul li {
   margin: 0 2rem 0 0;
 }
 
-header nav ul li a h4 {
-  font-weight: 400;
-  margin: 0;
-  padding: 0;
-}
-
-header nav ul li a h4:hover {
-  border-bottom: 2px solid #FC5253;
-  transition: .1s all linear;
-}
-
 header nav ul li a {
   color: #222;
-}
-
-header nav ul li a:hover {
-  color: #555;
+  border-bottom: none;
+  h3 {
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+  }
 }

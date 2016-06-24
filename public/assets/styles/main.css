@@ -324,21 +324,13 @@ header nav ul li {
   display: inline-block;
   margin: 0 2rem 0 0; }
 
-header nav ul li a h4 {
-  font-weight: 400;
-  margin: 0;
-  padding: 0; }
-
-header nav ul li a h4:hover {
-  border-bottom: 2px solid #FC5253;
-  -webkit-transition: .1s all linear;
-  transition: .1s all linear; }
-
 header nav ul li a {
-  color: #222; }
-
-header nav ul li a:hover {
-  color: #555; }
+  color: #222;
+  border-bottom: none; }
+  header nav ul li a h3 {
+    font-weight: 400;
+    margin: 0;
+    padding: 0; }
 
 #nav-icon {
   color: #555;
@@ -434,6 +426,7 @@ footer {
   color: #999999;
   bottom: 0;
   margin: 5rem 0 0 0;
+  padding: 2rem 0 0 0;
   -webkit-box-flex: 0;
   -ms-flex: none;
   flex: none; }
@@ -484,10 +477,12 @@ body {
   flex-direction: column; }
 
 ::-moz-selection {
-  background-color: rgba(255, 95, 74, 0.8); }
+  background-color: rgba(255, 95, 74, 0.8);
+  text-shadow: none; }
 
 ::selection {
-  background-color: rgba(255, 95, 74, 0.8); }
+  background-color: rgba(255, 95, 74, 0.8);
+  text-shadow: none; }
 
 * {
   webkit-box-sizing: border-box;
@@ -507,15 +502,10 @@ a {
   text-decoration: none;
   -webkit-transition: all .2s ease;
   transition: all .2s ease;
-  background-image: -webkit-linear-gradient(top, transparent 50%, rgba(255, 95, 74, 0.8) 50%);
-  background-image: linear-gradient(to bottom, transparent 50%, rgba(255, 95, 74, 0.8) 50%);
-  background-repeat: repeat-x;
-  background-size: 2px 2px;
-  background-position: 0 93%;
-  text-shadow: 1px 0 white,2px 0 white,-1px 0 white,-2px 0 white; }
+  border-bottom: 3px solid rgba(255, 95, 74, 0.8); }
 
 a:hover {
-  box-shadow: inset 0 -0.5rem 0 0 rgba(255, 95, 74, 0.8);
+  box-shadow: inset 0 -0.5em 0 0 rgba(255, 95, 74, 0.8);
   background-image: none;
   text-shadow: none; }
 

@@ -12,7 +12,8 @@
       <ul>
   </div>
   <div class="copyright">
-    <?php echo kirbytext($site->copyright("- Peter Binokwski"));  ?> <p>Have a great <span id="day"></span></p>
+     <span>&copy; 2016</span>
+     <p>Have a great <span id="day"></span></p>
   </div>
 </div>
 </footer>
