@@ -7,7 +7,11 @@ fields:
   title:
     label: Title
     type:  text
-  text:
-    label: Text
+ Intro:
+    label: Intro
+    type:  textarea
+    size:  large
+ Currently:
+    label: Currently
     type:  textarea
     size:  large

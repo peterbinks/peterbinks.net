@@ -3,8 +3,11 @@
 
 <section id="main">
 	<div class="container">
-		<div class="intro">
-			<?php echo kirbytext($page->text()) ?>
+		<div class="seven columns intro">
+			<?php echo kirbytext($page->intro()) ?>
+		</div>
+		<div class="five columns currently">
+			<?php echo kirbytext($page->currently()) ?>
 		</div>
 	</div>
 </section>

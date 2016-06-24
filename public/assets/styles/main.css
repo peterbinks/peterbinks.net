@@ -130,7 +130,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 2rem;
   font-weight: 400;
-  font-family: "fira-sans-1","fira-sans-2", sans-serif; }
+  font-family: "effra-1", "effra-2", "Avenir", "Helvetica Neue", sans-serif; }
 
 h1 {
   font-size: 2rem; }
@@ -142,7 +142,7 @@ h3 {
   font-size: 1.5rem; }
 
 h4 {
-  font-size: 1rem; }
+  font-size: 1.2rem; }
 
 h5 {
   font-size: 875rem; }
@@ -151,7 +151,8 @@ h6 {
   font-size: .75rem; }
 
 p {
-  margin-top: 0; }
+  margin-top: 0;
+  font-size: 1.2rem; }
 
 /* Code
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -304,7 +305,6 @@ input[type="button"].button-primary:focus {
 header {
   width: 100%;
   padding: 3rem 0;
-  background: #f4f4f4;
   -webkit-box-flex: 0;
   -ms-flex: none;
   flex: none; }
@@ -331,6 +331,9 @@ header nav ul li a {
     font-weight: 400;
     margin: 0;
     padding: 0; }
+
+h3.name a {
+  border: none; }
 
 #nav-icon {
   color: #555;
@@ -454,18 +457,44 @@ footer h3 {
       display: inline;
       margin: 0 .5rem; }
 
+.intro h1, .intro h2 {
+  font-family: "athelas-1", "athelas-2", serif;
+  line-height: 1.2; }
+
+.intro h1 {
+  font-size: 3.25rem; }
+
+.intro h2 {
+  font-size: 2.75rem; }
+
+.currently ul li {
+  list-style: none;
+  margin: 0 0 .5rem .5rem; }
+  .currently ul li:before {
+    content: "";
+    background-image: url(../images/harry.png);
+    background-size: 24px 24px;
+    height: 24px;
+    width: 24px;
+    display: block;
+    margin: 5px 5px 0 0;
+    float: left;
+    position: relative; }
+  .currently ul li h2 {
+    margin-bottom: 1rem; }
+
 /* Base Styles
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 html, body {
   height: 100%; }
 
 html {
-  font-size: 18px; }
+  font-size: 16px; }
 
 body {
   line-height: 1.6;
   font-weight: 400;
-  font-family: "effra-1", "effra-2", "Avenir", "Helvetica Neue",  sans-serif;
+  font-family: "fira-sans-1", "fira-sans-2", sans-serif;
   color: #222;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -600,6 +629,11 @@ hr {
   margin-bottom: 3.5rem;
   border-width: 0;
   border-top: 1px solid #E1E1E1; }
+
+blockquote {
+  font-size: 1.5rem;
+  border-left: 5px solid rgba(255, 95, 74, 0.8);
+  padding: 0 3rem; }
 
 /* Self Clearing Goodness */
 .container:after,

@@ -2,8 +2,17 @@ Title: Home
 
 ----
 
-Text:
+Intro: 
 
-# Hi there, (link: /about text: I'm Peter.)
-## I'm a web designer-developer specializing in modular design systems & front-end architecture.
-### Currently I'm working as a front end designer at (link: http://neotericdesign.com text: Neoteric)
+## Hi there, (link: /about text: I'm Peter.)
+# I'm a web designer-developer specializing in modular design systems & front-end architecture.
+
+----
+
+Currently: 
+
+### Currently I am:
+- #### Working as a front end designer at (link: http://neotericdesign.com text: Neoteric).
+- #### Writing at (link: http://thecoarsegrind.com text: The Coarse Grind)
+- #### Taking on a limited number of freelance clients
+- #### Hanging out with my super cool (link: http://wanderingsnippets.com text: girlfriend)

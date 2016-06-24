@@ -6,7 +6,7 @@
         <li id="twitterIcon"></a><a href="http://www.twitter.com/peterbinks">Twitter</a></li>
         <li id="dribbbleIcon"><a href="http://www.dribbble.com/peterbinks">Dribbble</a></li>
         <li id="instagramIcon"><a href="http://www.instagram.com/peterbinks">Instagram</a></li>
-        <li id="googleIcon"></i><a href="http://behance.net/peterbinks">Behance</a></li>
+        <li id="googleIcon"></i><a href="http://github.com/peterbinks">Github</a></li>
         <li id="linkedinIcon"><a href="http://www.linkedin.com/in/peterbinkowski" >LinkedIn</a></li>
         <li id="emailIcon"><a href="mailto:peter@peterbinks.net">Email</a></li>
       <ul>
