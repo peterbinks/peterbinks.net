@@ -1,6 +1,6 @@
 header {
   width: 100%;
-  padding: 3rem 0;
+  padding: 4rem 0;
   flex: none;
 }
 
@@ -42,9 +42,9 @@ h3.name a {
     border: none;
 }
 
-@media (min-width: 400px) {
+@media (min-width: 400px ) and (max-width: 600px) {
     header {
-        padding: 1rem;
+        padding: 4rem 1rem;
     }
     section {
         padding: 1rem;

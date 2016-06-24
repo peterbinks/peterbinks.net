@@ -306,7 +306,7 @@ input[type="button"].button-primary:focus {
 
 header {
   width: 100%;
-  padding: 3rem 0;
+  padding: 4rem 0;
   -webkit-box-flex: 0;
   -ms-flex: none;
   flex: none; }
@@ -342,64 +342,11 @@ header nav ul li a {
 h3.name a {
   border: none; }
 
-@media (min-width: 400px) {
+@media (min-width: 400px) and (max-width: 600px) {
   header {
-    padding: 1rem; }
+    padding: 4rem 1rem; }
   section {
     padding: 1rem; } }
-
-nav[role=navigation] {
-  -webkit-transition: all 200ms ease-out;
-  transition: all 200ms ease-out; }
-
-.js nav[role=navigation] {
-  overflow: hidden;
-  max-height: 0; }
-
-nav[role=navigation].active {
-  max-height: 100vh;
-  display: block;
-  clear: both;
-  width: 100%;
-  margin-top: -9px;
-  text-align: center;
-  position: relative;
-  background-color: #fff; }
-
-nav[role=navigation] ul {
-  margin: 0;
-  padding: 0; }
-
-nav[role=navigation] li {
-  display: block;
-  z-index: 99999; }
-
-nav[role=navigation] li a {
-  display: block;
-  clear: both;
-  padding: 0.8rem; }
-
-nav[role=navigation] li a h4:hover {
-  border: 0; }
-
-@media screen and (min-width: 48.25rem) {
-  #nav-icon {
-    display: none; }
-  .js nav[role=navigation] {
-    max-height: none; }
-  nav[role=navigation] ul {
-    margin: 0;
-    border: 0; }
-  nav[role=navigation] li {
-    display: inline-block;
-    margin: 0; }
-  nav[role=navigation] ul li :first-child {
-    padding-left: 0;
-    margin-left: 0; }
-  nav[role=navigation] li a {
-    border: 0;
-    margin: 1rem;
-    padding: 0; } }
 
 footer {
   font-size: .8rem;
