@@ -18,24 +18,22 @@
 </div>
 </footer>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-
- <script>
+<script>
   var _gaq=[['_setAccount','UA-15758586-2'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
   g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
   s.parentNode.insertBefore(g,s)}(document,'script'));
 </script>
 <script>
-$("p:has(img)").contents().unwrap();
+    $("p:has(img)").contents().unwrap();
 </script>
 
 <script type="text/javascript">
-var d = new Date();
-var weekday = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday",
-  "Friday", "Saturday");
-document.getElementById("day").innerHTML = (weekday[d.getDay()]);
+    var d = new Date();
+    var weekday = new Array("Sunday", "Monday", "Tuesday", "Wednesday",                         "Thursday", "Friday", "Saturday");
+    document.getElementById("day").innerHTML = (weekday[d.getDay()]);
 </script>
 
 </body>

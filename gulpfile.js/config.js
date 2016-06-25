@@ -10,9 +10,9 @@ var dist    = './public/';
 module.exports = {
   deploy: {
     source: 'public/',
-    user: 'peter@peterbinks.net',
-    host: 'peterbinks.net',
-    dest: '/home/202202/domains/peterbinks.net/html',
+    user: 's202202.gridserver.com',
+    host: 's202202.gridserver.com',
+    dest: 'domains/peterbinks.net/html',
     exclude_list: 'rsync-exclude.txt'
   },
 

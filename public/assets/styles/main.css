@@ -382,15 +382,15 @@ footer h3 {
       display: inline;
       margin: 0 .5rem; }
 
-.intro h1, .intro h2 {
-  font-family: "athelas-1", "athelas-2", serif;
-  line-height: 1.2; }
-
-.intro h1 {
-  font-size: 3rem; }
-
-.intro h2 {
-  font-size: 2.5rem; }
+.intro {
+  max-width: 80%; }
+  .intro h1, .intro h2 {
+    font-family: "athelas-1", "athelas-2", serif;
+    line-height: 1.2; }
+  .intro h1 {
+    font-size: 3.25rem; }
+  .intro h2 {
+    font-size: 2.5rem; }
 
 .currently ul li {
   list-style: none;
@@ -427,7 +427,8 @@ html, body {
   height: 100%; }
 
 html {
-  font-size: 16px; }
+  font-size: 16px;
+  box-sizing: border-box; }
 
 body {
   line-height: 1.6;
@@ -451,9 +452,8 @@ body {
   background-color: rgba(255, 95, 74, 0.8);
   text-shadow: none; }
 
-* {
-  webkit-box-sizing: border-box;
-  box-sizing: border-box; }
+*, *:before, *:after {
+  box-sizing: inherit; }
 
 * {
   text-rendering: optimizeLegibility; }

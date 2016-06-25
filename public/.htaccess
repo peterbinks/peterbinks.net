@@ -7,8 +7,8 @@
 # http://yourdomain.com/about-us/team
 RewriteEngine on
 
-RewriteCond %{http_host} !DOMAIN.TLD
-RewriteRule ^(.*) http://DOMAIN.TLD%{REQUEST_URI} [R=301,L]
+RewriteCond %{http_host} !peterbinks.net
+RewriteRule ^(.*) http://peterbinks.net%{REQUEST_URI} [R=301,L]
 
 RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
 RewriteRule ^ http://%1%{REQUEST_URI} [R=301,L]
