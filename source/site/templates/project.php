@@ -10,7 +10,7 @@
               <li class="tag"><span class="check">&check;</span><?php echo $tag ?></li>
             <?php endforeach ?>
             </ul>
-            <span class="clickthrough"><a href="<?php $page->field()->URL() ?>">Visit The Site</a></span>
+            <span class="clickthrough"><a href="<?php echo $page->content()->url() ?>">Visit The Site</a></span>
           <?php echo $page->text()->kirbytext() ?>
       </div>
   </div>
