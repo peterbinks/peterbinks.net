@@ -1,0 +1,54 @@
+a.project {
+    display: block;
+    border-bottom: none;
+    transition: .2s ease;
+    margin: 3rem 0;
+    padding: 1rem;
+    &:first-child {
+        margin-top: 0;
+    }
+    &:hover {
+        box-shadow: inset 5rem 0rem 0rem 0rem $red;
+        >.projecttitle {
+            color: $black;
+        }
+    }
+}
+
+ul.article-tag-list {
+    margin: 0;
+    list-style: none;
+    li.article-tag {
+        display: inline;
+        color: #444;
+    }
+}
+
+ul.tag-list {
+    margin: 0;
+    list-style: none;
+    padding: 1rem;
+    display: block;
+    li.tag {
+        display: inline;
+        color: #444;
+        padding: 5px;
+        font-size: .875rem;
+    }
+}
+
+.projecttitle {
+    color: $red;
+    font-weight: 900;
+}
+
+
+.project-title {
+    margin: 0;
+    font-weight: 900;
+}
+
+span.check {
+    color: $red;
+    font-size: 1rem;
+}

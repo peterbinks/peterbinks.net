@@ -2,14 +2,24 @@
 <?php snippet('menu') ?>
 <section>
   <div class="container">
-    <article>
-
       <div class="content">
-        <h1><?php echo $page->title()->html() ?></h1>
+        <?php foreach($page->children()->visible()->flip() as $project): ?>
+        <a class="project" href="<?php echo $project->url() ?>">
+            <h2 class="projecttitle">
+                <?php echo html($project->title()) ?>
+            </h2>
+            <?php $tags = $project->tags()->split(); ?>
+            <ul class="article-tag-list">
+            <?php foreach($tags as $tag): ?>
+                <li class="article-tag"><span class="check">&check;</span> <?php echo $tag ?></li>
+            <?php endforeach ?>
+            </ul>
+        </a>
+        <hr>
+        <?php endforeach ?>
+
         <?php echo $page->text()->kirbytext() ?>
       </div>
-
-    </article>
   </div>
 </section>
 <?php snippet('footer') ?>

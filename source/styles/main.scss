@@ -8,6 +8,7 @@
 @import 'components/footer';
 @import 'components/home';
 @import 'components/readinglist';
+@import 'components/work';
 
 /* Base Styles
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -134,6 +135,9 @@ li {
     float: right; }
   .u-pull-left {
     float: left; }
+.text-center {
+    text-align: center;
+}
 
 /* Misc
 –––––––––––––––––––––––––––––––––––––––––––––––––– */

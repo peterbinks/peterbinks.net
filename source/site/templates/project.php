@@ -2,22 +2,17 @@
 <?php snippet('menu') ?>
 <section>
   <div class="container">
-
-    <h2><?php echo $page->title()->html() ?></h2>
-
-    <div class="text">
-      <?php echo $page->text()->kirbytext() ?>
-    </div>
-
-    <nav class="nextprev cf" role="navigation">
-      <?php if($prev = $page->prevVisible()): ?>
-      <a class="prev" href="<?php echo $prev->url() ?>">&larr; previous</a>
-      <?php endif ?>
-      <?php if($next = $page->nextVisible()): ?>
-      <a class="next" href="<?php echo $next->url() ?>">next &rarr;</a>
-      <?php endif ?>
-    </nav>
-
+      <div class="content">
+          <h1 class="project-title"><?php echo $page->title()->html() ?></h1>
+          <?php $tags = $page->tags()->split(); ?>
+            <ul class="tag-list">
+            <?php foreach($tags as $tag): ?>
+              <li class="tag"><span class="check">&check;</span><?php echo $tag ?></li>
+            <?php endforeach ?>
+            </ul>
+            <span class="clickthrough"><a href="<?php $page->field()->URL() ?>">Visit The Site</a></span>
+          <?php echo $page->text()->kirbytext() ?>
+      </div>
   </div>
 </section>
 <?php snippet('footer') ?>

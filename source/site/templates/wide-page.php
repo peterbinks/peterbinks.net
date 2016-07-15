@@ -1,6 +1,6 @@
 <?php snippet('header') ?>
 <?php snippet('menu') ?>
-<section>
+<div class="container">
     <?php echo kirbytext($page->text()) ?>
-</section>
+</div>
 <?php snippet('footer') ?>

@@ -2,7 +2,7 @@
 
 title: Work
 pages: true
-  template: work
+  template: project
 files: true
 fields:
   title:
