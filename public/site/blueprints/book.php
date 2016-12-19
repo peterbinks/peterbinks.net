@@ -1,6 +1,6 @@
 <?php if(!defined('KIRBY')) exit ?>
 
-title: Books
+title: Book
 pages: false
   template: page
 files: true

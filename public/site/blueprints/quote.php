@@ -1,6 +1,6 @@
 <?php if(!defined('KIRBY')) exit ?>
 
-title: Quotes
+title: Quote
 pages: false
   template: Quote
 files: true
