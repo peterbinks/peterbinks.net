@@ -2,7 +2,7 @@
 <?php snippet('menu') ?>
 <div class="container">
     <?php echo kirbytext($page->text()) ?>
-    <div class="content quotes">
+    <div class="quotes">
         <?php foreach($page->children()->visible() as $quote): ?>
           <blockquote>
              <?php echo $quote->quote() ?><br>
