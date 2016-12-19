@@ -5,10 +5,12 @@
     <?php foreach($page->children()->visible() as $book): ?>
       <div class="book">
          <h2><?php echo kirbytext($book->Title()) ?></h2>
+         <?php if($image = $book->image()): ?>
          <span class="book-cover">
-            <?php echo $book->Cover() ?>
-         </span>
-         <?php echo kirbytext($book->Description()) ?>
+             <img src="<?php echo $image->url() ?>" alt="">
+        </span>
+        <?php endif ?>
+        <?php echo kirbytext($book->Description()) ?>
      </div>
     <?php endforeach ?>
 </div>
