@@ -7,6 +7,7 @@ password: >
 language: en
 role: admin
 history:
+  - quotes/ron
   - home
   - work
   - hire-me/resume
