@@ -1,14 +1,16 @@
 <?php snippet('header') ?>
 <?php snippet('menu') ?>
-<div class="container quotes">
+<div class="container books">
     <?php echo kirbytext($page->text()) ?>
-    <?php foreach($page->children()->visible()->flip() as $book): ?>
+    <?php foreach($page->children()->visible() as $book): ?>
       <div class="book">
-         <h2><?php echo kirbytext($book->Title()) ?></h2>
-         <span class="book-cover">
-            <?php echo kirbytext($book->Cover()) ?>
-         </span>
-         <?php echo kirbytext($book->Description()) ?>
+         <h2><?php echo $book->Title() ?></h2>
+         <?php if($image = $book->image()): ?>
+         <figure class="book-cover">
+             <img src="<?php echo $image->url() ?>" alt="">
+        </figure>
+        <?php endif ?>
+        <?php echo kirbytext($book->Description()) ?>
      </div>
     <?php endforeach ?>
 </div>

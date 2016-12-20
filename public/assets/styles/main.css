@@ -348,6 +348,10 @@ h3.name a {
   section {
     padding: 1rem; } }
 
+.title svg {
+  background: #333;
+  padding: 5px; }
+
 footer {
   font-size: .8rem;
   background-color: #f4f4f4;
@@ -408,15 +412,20 @@ footer h3 {
   .currently ul li h2 {
     margin-bottom: 1rem; }
 
-ul.readinglist li {
+.book {
   display: inline-block;
   clear: both;
   list-style: none;
   margin: 0 0 3rem 0; }
-  ul.readinglist li img {
-    border: 1px solid #111;
+  .book figure.book-cover {
+    display: inline-block;
+    margin: 0;
     float: left; }
-  ul.readinglist li p {
+    .book figure.book-cover img {
+      box-shadow: 1px 1px 1px 10px rgba(0, 0, 0, 0.1);
+      float: left;
+      max-width: 200px; }
+  .book p {
     width: 60%;
     float: left;
     padding: 2rem; }

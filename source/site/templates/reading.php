@@ -4,11 +4,11 @@
     <?php echo kirbytext($page->text()) ?>
     <?php foreach($page->children()->visible() as $book): ?>
       <div class="book">
-         <h2><?php echo kirbytext($book->Title()) ?></h2>
+         <h2><?php echo $book->Title() ?></h2>
          <?php if($image = $book->image()): ?>
-         <span class="book-cover">
+         <figure class="book-cover">
              <img src="<?php echo $image->url() ?>" alt="">
-        </span>
+        </figure>
         <?php endif ?>
         <?php echo kirbytext($book->Description()) ?>
      </div>
