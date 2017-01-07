@@ -5,10 +5,9 @@ header {
 }
 
 header nav {
-  display: block;
-  clear: both;
-  width: 100%;
-  text-align: left;
+    display: inline-block;
+    text-align: left;
+    padding: 1rem;
 }
 
 header nav ul {
