@@ -13,7 +13,7 @@
    <h2 class="articletitle">
      <a href="<?php echo $article->url() ?>"><?php echo html($article->title()) ?></a>
    </h2>
-
+   
    <h3 class="time-stamp"> - <time datetime="<?php echo $article->date('M d Y') ?>" pubdate="pubdate"><?php echo $article->date('M d Y') ?></time></h3>
 
    <?php echo kirbytext($article->text()) ?>
