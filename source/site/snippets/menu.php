@@ -14,6 +14,7 @@
     <nav id="menu">
         <ul>
             <li><a href="/about"><h3>About</h3></a></li>
+            <li><a href="/blog"><h3>Blog</h3></a></li>
             <li><a href="/work"><h3>Work</h3></a></li>
             <li><a href="/quotes"><h3>Quotes</h3></a></li>
             <li><a href="/reading"><h3>Reading</h3></a></li>
