@@ -359,7 +359,8 @@ h3.name a {
       height: auto;
       border-radius: 3px; }
     .title a:hover {
-      box-shadow: none; }
+      box-shadow: none;
+      background: rgba(255, 95, 74, 0.8); }
 
 footer {
   font-size: .8rem;
