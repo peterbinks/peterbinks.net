@@ -63,8 +63,11 @@ h3.name a {
             border-radius: 3px;
         }
         &:hover {
+            border-bottom: none;
             box-shadow: none;
-            background: $red;
+            svg {
+                background: $red;
+            }
         }
     }
 }
