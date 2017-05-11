@@ -7,7 +7,8 @@ password: >
 language: en
 role: admin
 history:
-  - blog
-  - home
-  - work
-  - hire-me/resume
+  - work/pawar-2018
+  - work/expo-chicago
+  - work/art-design-chicago
+  - work/pozen
+  - work/uwsheltermedicine

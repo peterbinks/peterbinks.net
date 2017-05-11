@@ -2,6 +2,7 @@
 
 title: Article
 pages: true
+    template: blogarticle
 files: true
 fields:
   title:

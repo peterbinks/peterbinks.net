@@ -2,6 +2,7 @@
 
 title: Project
 pages: false
+template: project
 files:
   sortable: true
 fields:
