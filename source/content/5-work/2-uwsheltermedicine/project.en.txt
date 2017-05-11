@@ -1,0 +1,17 @@
+Title: University of Wisconsin Shelter Medicine
+
+----
+
+Text: 
+
+(image: uwsheltermedicine.jpg alt: University of Wisconsin Shelter Medicine homepage)
+
+I lead the front end development on the new (link: http://www.uwsheltermedicine.com/ text: University of Wisconsin Shelter Medicine) website. It runs on Ruby on Rails and it's content is maintained using a custom CMS. We used SASS (specifically SCSS) as the CSS pre-processor. (link: http://foundation.zurb.com/ text: Foundation) is used for grid layout, and Javascript plugins primarily. We use Git with Gitlab for our version control.
+
+----
+
+Url: http://www.uwsheltermedicine.com/
+
+----
+
+Tags: Front End Development,SASS,Rails

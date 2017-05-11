@@ -1,0 +1,19 @@
+Title: Pawar 2018
+
+----
+
+Text: 
+
+As part of Ameya Pawar's digital volunteer team for his 2018 gubernatorial bid, I built out and launched pawar2018.com. Built on Wordpress, I was responsible for setting up the admin area for site (as the person with the most wordpress experience) as well as the front-end development of various sections of the site.
+
+(image: pawarhome.png)
+
+(image: pawarissues.png)
+
+----
+
+Url: https://pawar2018.com
+
+----
+
+Tags: Front End Development,WordPress,Gulp

@@ -443,25 +443,28 @@ footer h3 {
     padding: 2rem; }
 
 a.project {
-  display: block;
+  display: inline-block;
+  width: 50%;
+  float: left;
   border-bottom: none;
   -webkit-transition: .2s ease;
   transition: .2s ease;
   margin: 3rem 0;
   padding: 1rem; }
-  a.project:first-child {
-    margin-top: 0; }
   a.project:hover {
-    box-shadow: inset 5rem 0rem 0rem 0rem rgba(255, 95, 74, 0.8); }
-    a.project:hover > .projecttitle {
-      color: #222; }
+    box-shadow: none; }
+    a.project:hover .project-title {
+      color: rgba(255, 95, 74, 0.8); }
 
 ul.article-tag-list {
   margin: 0;
   list-style: none; }
   ul.article-tag-list li.article-tag {
     display: inline;
-    color: #444; }
+    color: #fff;
+    background: #afafaf;
+    padding: 2px 6px;
+    border-radius: 2px; }
 
 ul.tag-list {
   margin: 0;
@@ -474,17 +477,28 @@ ul.tag-list {
     padding: 5px;
     font-size: .875rem; }
 
-.projecttitle {
-  color: rgba(255, 95, 74, 0.8);
+.project-title {
+  min-height: 88px;
+  color: #333;
   font-weight: 900; }
+
+.project-image {
+  max-height: 250px;
+  overflow: hidden;
+  margin: 0 0 2rem 0; }
 
 .project-title {
   margin: 0;
   font-weight: 900; }
 
 span.check {
-  color: rgba(255, 95, 74, 0.8);
+  color: #fff;
   font-size: 1rem; }
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  a.project {
+    width: 100%;
+    display: block; } }
 
 @media (min-width: 600px) {
   .quotes {

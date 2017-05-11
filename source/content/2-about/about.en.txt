@@ -2,16 +2,16 @@ Title: About
 
 ----
 
-Text:
+Text: 
 
-(image: 901963_10202245590758310_1328561611_o.jpg alt: peter binkowski  title: Photo cred to my good friend Ann Marie   )
+(image: fullsizerender-5.jpg alt: Peter Binkowski  title: Melody make me look so good )
 
 ##About Peter
-Peter Binkowski is a web designer living in Chicago.
+My name is Peter, I make websites, and I live in Chicago.
 
-He enjoys a well brewed cup of coffee, rainy days, and is a strong supporter of the oxford comma.  When not behind a screen you can find him with his nose in a (link: /reading text: book), exploring the outdoors, or spending quality time with his drum set.
+I enjoy a well brewed cup of coffee, rainy days, and the oxford comma.  When not behind a screen you I am reading a (link: /reading text: book), making music on my drum kit, or spending quality time with my (link: http://wanderingsnippets.com text: wife).
 
-You can take a look at his (link: http://peterbinks.net/hire-me/resume text: resumé) if that's your sort of thing.
+You can take a look at my (link: https://www.dropbox.com/s/240drl23ekbu9q9/resume.pdf?dl=0 text: resumé).
 
 
 ##About The Site

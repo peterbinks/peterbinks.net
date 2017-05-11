@@ -1,0 +1,17 @@
+Title: Alliant Credit Union
+
+----
+
+Text: 
+
+(image: alliant.jpg alt: Alliant Credit Union Homepage)
+
+I worked with (link: http://wojodesign.com text: Wojo Design) in their redesign of  (link: http://www.alliantcreditunion.org/ text: Alliant Credit Union's)  website. I was brought on as a contractor to help with the Front End Development, primarily making templates in Expression Engine. We used SASS (specifically SCSS) as the CSS pre-processor. (link: http://susy.oddbird.net/ text: Susy) is used for grid layout. We used Git with Gitlab for our version control. And (link: http://gulpjs.com/ text:Gulp) for build process.
+
+----
+
+Url: http://www.alliantcreditunion.org/
+
+----
+
+Tags: Front End Development,Expression Engine,SASS,Gulp

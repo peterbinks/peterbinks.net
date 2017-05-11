@@ -5,9 +5,13 @@
       <div class="content">
         <?php foreach($page->children()->visible()->flip() as $project): ?>
         <a class="project" href="<?php echo $project->url() ?>">
-            <h2 class="projecttitle">
+            <h2 class="project-title">
                 <?php echo html($project->title()) ?>
             </h2>
+                <?php $img = $project->featuredImage()->toFile(); ?>
+            <div class="project-image">
+                <img src="<?php echo $img->url(); ?>" >
+            </div>
             <?php $tags = $project->tags()->split(); ?>
             <ul class="article-tag-list">
             <?php foreach($tags as $tag): ?>
@@ -15,11 +19,9 @@
             <?php endforeach ?>
             </ul>
         </a>
-        <hr>
         <?php endforeach ?>
-
-        <?php echo $page->text()->kirbytext() ?>
       </div>
   </div>
+  <?php echo $page->text()->kirbytext() ?>
 </section>
 <?php snippet('footer') ?>

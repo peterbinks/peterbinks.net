@@ -2,6 +2,4 @@ Title: Work
 
 ----
 
-Text:
-
-You can also take a look at my (link: http://peterbinks.net/hire-me/resume text: résumé) if that's your sort of thing.
+Text: You can also take a look at my (link: https://www.dropbox.com/s/240drl23ekbu9q9/resume.pdf?dl=0 text: résumé).

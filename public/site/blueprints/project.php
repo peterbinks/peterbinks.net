@@ -17,4 +17,6 @@ fields:
   tags:
     label: Tags
     type: tags
-  
+  featuredImage:
+      label: Featured Image
+      type: image
