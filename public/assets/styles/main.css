@@ -464,7 +464,8 @@ ul.article-tag-list {
     color: #fff;
     background: #afafaf;
     padding: 2px 6px;
-    border-radius: 2px; }
+    border-radius: 2px;
+    font-size: .875rem; }
 
 ul.tag-list {
   margin: 0;
@@ -474,8 +475,10 @@ ul.tag-list {
   ul.tag-list li.tag {
     display: inline;
     color: #444;
-    padding: 5px;
-    font-size: .875rem; }
+    color: #fff;
+    background: #afafaf;
+    padding: 2px 6px;
+    border-radius: 2px; }
 
 .project-title {
   min-height: 88px;
@@ -489,11 +492,20 @@ ul.tag-list {
 
 .project-title {
   margin: 0;
-  font-weight: 900; }
+  font-weight: 900;
+  display: inline-block; }
+
+span.clickthrough {
+  margin: 0 0 0 1rem; }
 
 span.check {
   color: #fff;
   font-size: 1rem; }
+
+article.content {
+  margin: 3rem 0; }
+  article.content img {
+    width: 100%; }
 
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   a.project {

@@ -9,13 +9,15 @@
           <?php if($page->content()->url()->isNotEmpty()): ?>
             <span class="clickthrough"><a href="<?php echo $page->content()->url() ?>">Visit The Project</a></span>
          <?php endif ?>
-         
-            <ul class="tag-list">
+
+            <ul class="article-tag-list">
                 <?php foreach($tags as $tag): ?>
-                  <li class="tag"><span class="check">&check;</span><?php echo $tag ?></li>
+                  <li class="article-tag"><span class="check">&check;</span><?php echo $tag ?></li>
                 <?php endforeach ?>
             </ul>
-          <?php echo $page->text()->kirbytext() ?>
+            <article class="content">
+                <?php echo $page->text()->kirbytext() ?>
+            </article>
       </div>
   </div>
 </section>
