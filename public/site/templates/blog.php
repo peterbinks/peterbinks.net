@@ -7,7 +7,7 @@
   <?php echo $page->text()->kirbytext() ?>
 
   <?php foreach($page->children()->visible()->flip() as $article): ?>
-
+      
     <article class="post">
 
        <h2 class="articletitle">
@@ -16,7 +16,7 @@
        <p><?php echo $article->text()->excerpt(300) ?></p>
 
     </article>
-    <hr>
+
   <?php endforeach ?>
 
 </section>
