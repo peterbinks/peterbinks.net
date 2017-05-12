@@ -8,16 +8,15 @@
 
   <?php foreach($page->children()->visible()->flip() as $article): ?>
 
-<article class="post">
+    <article class="post">
 
-   <h2 class="articletitle">
-     <a href="<?php echo $article->url() ?>"><?php echo html($article->title()) ?></a>
-   </h2>
-   <p><?php echo $article->text()->excerpt(300) ?></p>
+       <h2 class="articletitle">
+         <a href="<?php echo $article->url() ?>"><?php echo html($article->title()) ?></a>
+       </h2>
+       <p><?php echo $article->text()->excerpt(300) ?></p>
 
-</article>
-
-
+    </article>
+    <hr>
   <?php endforeach ?>
 
 </section>
