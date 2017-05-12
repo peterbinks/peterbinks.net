@@ -4,6 +4,8 @@ title: Article
 
 files: true
 
+template: article
+
 pages: false
 
 fields:

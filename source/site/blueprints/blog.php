@@ -3,14 +3,10 @@
 
 title: Blog
 
-pages:
-  template: article
-  sort: flip
-  num: date
+pages: true
 
 options:
   template: false
-  status: false
 
 icon: newspaper-o
 
