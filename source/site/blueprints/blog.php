@@ -4,6 +4,8 @@
 title: Blog
 
 pages: true
+    sort: flip
+    num: date
 
 options:
   template: false
