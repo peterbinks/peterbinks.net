@@ -16,8 +16,8 @@
 
    <h3 class="time-stamp"> - <time datetime="<?php echo $article->date('M d Y') ?>" pubdate="pubdate"><?php echo $article->date('M d Y') ?></time></h3>
 
-   <?php echo kirbytext($article->text()) ?>
-
+   <p><?php echo $article->text()->excerpt(300) ?></p>
+   
 </article>
 
 
