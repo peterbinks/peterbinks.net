@@ -4,7 +4,7 @@
 title: Blog
 
 pages: true
-    sort: flip
+    sortable: true
     num: date
 
 options:
