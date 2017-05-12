@@ -8,10 +8,12 @@
             <h2 class="project-title">
                 <?php echo html($project->title()) ?>
             </h2>
+            <?php if($project->featuredImage()->isNotEmpty()): ?>
                 <?php $img = $project->featuredImage()->toFile(); ?>
-            <div class="project-image">
-                <img src="<?php echo $img->url(); ?>" >
-            </div>
+                <div class="project-image">
+                    <img src="<?php echo $img->url(); ?>" >
+                </div>
+            <?php endif ?>
             <?php $tags = $project->tags()->split(); ?>
             <ul class="article-tag-list">
             <?php foreach($tags as $tag): ?>

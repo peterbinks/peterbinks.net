@@ -40,3 +40,5 @@ c::set('languages', array(
 ));
 
 c::set('kirbytext.image.figure', false);
+
+c::set('debug',true);
