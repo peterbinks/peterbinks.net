@@ -2,7 +2,7 @@
 <?php snippet('menu') ?>
 <section>
   <div class="container">
-      <div class="work content">
+      <div class="work-content">
         <?php foreach($page->children()->visible()->flip() as $project): ?>
         <a class="project" href="<?php echo $project->url() ?>">
             <h2 class="project-title">
