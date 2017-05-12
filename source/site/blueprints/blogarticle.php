@@ -2,6 +2,7 @@
 
 title: Blog Article
 pages: false
+template: blogarticle
 files: true
 fields:
   title:
