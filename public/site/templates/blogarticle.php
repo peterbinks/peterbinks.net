@@ -6,7 +6,6 @@
     <div class="blogarticle">
       <article>
         <h1 class="post-title"><?php echo html($page->title()) ?></h1>
-        <h3 class="time-stamp"><time datetime="<?php echo $page->date('M d Y') ?>" pubdate="pubdate"><?php echo $page->date('M d Y') ?></time></h3>
         <article class="post">
         <?php echo kirbytext($page->text()) ?>
         <br>
@@ -24,9 +23,7 @@
         </script>
         <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
         </article>
-
         <a href="<?php echo url('blog') ?>">Back…</a>
-
       </article>
     </div>
   </div>

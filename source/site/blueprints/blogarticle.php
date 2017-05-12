@@ -1,6 +1,6 @@
 <?php if(!defined('KIRBY')) exit ?>
 
-title: Article
+title: Blog Article
 pages: true
     template: blogarticle
 files: true
