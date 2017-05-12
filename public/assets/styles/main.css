@@ -444,8 +444,10 @@ footer h3 {
 
 a.project {
   display: inline-block;
-  width: 50%;
-  float: left;
+  -webkit-box-flex: 2;
+  -ms-flex: 2 0 100%;
+  flex: 2 0 100%;
+  max-width: 50%;
   border-bottom: none;
   -webkit-transition: .2s ease;
   transition: .2s ease;
@@ -506,6 +508,16 @@ article.content {
   margin: 3rem 0; }
   article.content img {
     width: 100%; }
+
+.work-content {
+  max-width: 1080px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  text-align: center;
+  margin: 0 auto; }
 
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   a.project {

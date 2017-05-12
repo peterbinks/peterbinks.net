@@ -1,7 +1,7 @@
 a.project {
     display: inline-block;
-    width: 50%;
-    float: left;
+    flex: 2 0 100%;
+    max-width: 50%;
     border-bottom: none;
     transition: .2s ease;
     margin: 3rem 0;
@@ -75,6 +75,14 @@ article.content {
     img {
         width: 100%;
     }
+}
+
+.work-content {
+    max-width: 1080px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    margin: 0 auto;
 }
 
 @media only screen
