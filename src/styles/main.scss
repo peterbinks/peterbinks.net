@@ -61,6 +61,36 @@
 }
 
 /* ============================================
+   LIGHT THEME - Paper Terminal
+   ============================================ */
+
+[data-theme="light"] {
+  /* Background Colors - warm cream/newsprint */
+  --bg-base: oklch(0.96 0.01 80);
+  --bg-surface: oklch(0.92 0.015 75);
+  --bg-elevated: oklch(0.88 0.02 75);
+
+  /* Border Colors */
+  --border-subtle: oklch(0.85 0.015 70);
+  --border-default: oklch(0.75 0.02 70);
+  --border-bright: oklch(0.65 0.025 70);
+
+  /* Text Colors - dark warm brown */
+  --text-primary: oklch(0.15 0.02 60);
+  --text-secondary: oklch(0.35 0.02 60);
+  --text-muted: oklch(0.55 0.015 60);
+
+  /* Accent Colors - darker amber for contrast */
+  --accent: oklch(0.55 0.18 50);
+  --accent-bright: oklch(0.45 0.2 45);
+  --accent-dim: oklch(0.65 0.14 55);
+
+  /* Effects - subtler for light mode */
+  --glow-accent: 0 0 8px oklch(0.55 0.18 50 / 0.3), 0 0 16px oklch(0.5 0.12 50 / 0.15);
+  --glow-text: 0 0 4px oklch(0.55 0.18 50 / 0.25);
+}
+
+/* ============================================
    CSS RESET
    ============================================ */
 
@@ -534,6 +564,24 @@ li::marker {
     ellipse at center,
     transparent 0%,
     oklch(0 0 0 / 0.15) 100%
+  );
+}
+
+[data-theme="light"] .scanlines {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    oklch(0.3 0.02 60 / 0.04) 2px,
+    oklch(0.3 0.02 60 / 0.04) 4px
+  );
+}
+
+[data-theme="light"] .scanlines::after {
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    oklch(0.5 0.02 60 / 0.08) 100%
   );
 }
 
