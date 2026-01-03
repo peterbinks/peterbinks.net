@@ -30,13 +30,22 @@ const currentPath = Astro.url.pathname;
   <meta name="theme-color" content="#1a1410" />
   <title>{title} // PETERBINKS.NET</title>
   
-  <!-- Prevent flash of wrong theme -->
+  <!-- Prevent flash of wrong theme/accent -->
   <script is:inline>
     (function() {
-      const saved = localStorage.getItem('theme');
+      const savedTheme = localStorage.getItem('theme');
+      const savedAccent = localStorage.getItem('accent');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (saved === 'light' || (!saved && !prefersDark)) {
+      
+      // Light is default; only go dark if explicitly saved or system prefers dark
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
         document.documentElement.setAttribute('data-theme', 'light');
+      }
+      
+      if (savedAccent) {
+        document.documentElement.setAttribute('data-accent', savedAccent);
       }
     })();
   </script>

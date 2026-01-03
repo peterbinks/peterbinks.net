@@ -19,6 +19,7 @@
     color: var(--text-muted);
     font-family: var(--font-mono);
     font-size: var(--font-size-xs);
+    font-weight: bold;
     padding: var(--space-1) var(--space-2);
     cursor: pointer;
     transition: all 0.15s ease;
@@ -51,25 +52,18 @@
     const savedTheme = localStorage.getItem('theme');
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
-    // Set initial theme
-    if (savedTheme) {
-      html.setAttribute('data-theme', savedTheme);
-    } else if (!systemPrefersDark) {
+    // Light is default; only go dark if explicitly saved or system prefers dark
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+      html.setAttribute('data-theme', 'dark');
+    } else {
       html.setAttribute('data-theme', 'light');
     }
-    // Dark is default, so no need to set if systemPrefersDark or no preference
     
     // Toggle handler
     toggle?.addEventListener('click', () => {
       const currentTheme = html.getAttribute('data-theme');
       const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-      
-      if (newTheme === 'dark') {
-        html.removeAttribute('data-theme');
-      } else {
-        html.setAttribute('data-theme', newTheme);
-      }
-      
+      html.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
     });
   }

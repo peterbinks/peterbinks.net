@@ -61,6 +61,34 @@
 }
 
 /* ============================================
+   ACCENT COLOR OPTIONS - Dark Theme
+   ============================================ */
+
+[data-accent="cyan"] {
+  --accent: oklch(0.75 0.15 210);
+  --accent-bright: oklch(0.88 0.18 210);
+  --accent-dim: oklch(0.55 0.12 210);
+  --glow-accent: 0 0 10px oklch(0.75 0.15 210 / 0.5), 0 0 20px oklch(0.55 0.12 210 / 0.3);
+  --glow-text: 0 0 5px oklch(0.75 0.15 210 / 0.4);
+}
+
+[data-accent="magenta"] {
+  --accent: oklch(0.7 0.2 320);
+  --accent-bright: oklch(0.82 0.22 320);
+  --accent-dim: oklch(0.55 0.16 320);
+  --glow-accent: 0 0 10px oklch(0.7 0.2 320 / 0.5), 0 0 20px oklch(0.55 0.16 320 / 0.3);
+  --glow-text: 0 0 5px oklch(0.7 0.2 320 / 0.4);
+}
+
+[data-accent="green"] {
+  --accent: oklch(0.75 0.18 145);
+  --accent-bright: oklch(0.88 0.2 145);
+  --accent-dim: oklch(0.55 0.14 145);
+  --glow-accent: 0 0 10px oklch(0.75 0.18 145 / 0.5), 0 0 20px oklch(0.55 0.14 145 / 0.3);
+  --glow-text: 0 0 5px oklch(0.75 0.18 145 / 0.4);
+}
+
+/* ============================================
    LIGHT THEME - Paper Terminal
    ============================================ */
 
@@ -80,7 +108,7 @@
   --text-secondary: oklch(0.35 0.02 60);
   --text-muted: oklch(0.55 0.015 60);
 
-  /* Accent Colors - darker amber for contrast */
+  /* Accent Colors - darker amber for contrast (default) */
   --accent: oklch(0.55 0.18 50);
   --accent-bright: oklch(0.45 0.2 45);
   --accent-dim: oklch(0.65 0.14 55);
@@ -88,6 +116,34 @@
   /* Effects - subtler for light mode */
   --glow-accent: 0 0 8px oklch(0.55 0.18 50 / 0.3), 0 0 16px oklch(0.5 0.12 50 / 0.15);
   --glow-text: 0 0 4px oklch(0.55 0.18 50 / 0.25);
+}
+
+/* ============================================
+   ACCENT COLOR OPTIONS - Light Theme
+   ============================================ */
+
+[data-theme="light"][data-accent="cyan"] {
+  --accent: oklch(0.5 0.15 210);
+  --accent-bright: oklch(0.4 0.18 210);
+  --accent-dim: oklch(0.6 0.12 210);
+  --glow-accent: 0 0 8px oklch(0.5 0.15 210 / 0.3), 0 0 16px oklch(0.4 0.12 210 / 0.15);
+  --glow-text: 0 0 4px oklch(0.5 0.15 210 / 0.25);
+}
+
+[data-theme="light"][data-accent="magenta"] {
+  --accent: oklch(0.5 0.2 320);
+  --accent-bright: oklch(0.4 0.22 320);
+  --accent-dim: oklch(0.6 0.16 320);
+  --glow-accent: 0 0 8px oklch(0.5 0.2 320 / 0.3), 0 0 16px oklch(0.4 0.16 320 / 0.15);
+  --glow-text: 0 0 4px oklch(0.5 0.2 320 / 0.25);
+}
+
+[data-theme="light"][data-accent="green"] {
+  --accent: oklch(0.5 0.18 145);
+  --accent-bright: oklch(0.4 0.2 145);
+  --accent-dim: oklch(0.6 0.14 145);
+  --glow-accent: 0 0 8px oklch(0.5 0.18 145 / 0.3), 0 0 16px oklch(0.4 0.14 145 / 0.15);
+  --glow-text: 0 0 4px oklch(0.5 0.18 145 / 0.25);
 }
 
 /* ============================================
