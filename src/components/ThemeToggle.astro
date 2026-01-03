@@ -1,0 +1,82 @@
+---
+// Theme toggle component - switches between dark and light mode
+---
+
+<button 
+  class="theme-toggle" 
+  id="theme-toggle" 
+  aria-label="Toggle theme"
+  title="Toggle theme"
+>
+  <span class="theme-toggle-dark">[DARK]</span>
+  <span class="theme-toggle-light">[LIGHT]</span>
+</button>
+
+<style is:global>
+  .theme-toggle {
+    background: none;
+    border: 1px solid var(--border-default);
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    padding: var(--space-1) var(--space-2);
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .theme-toggle:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .theme-toggle-light {
+    display: none;
+  }
+
+  [data-theme="light"] .theme-toggle-dark {
+    display: none;
+  }
+
+  [data-theme="light"] .theme-toggle-light {
+    display: inline;
+  }
+</style>
+
+<script>
+  function initThemeToggle() {
+    const toggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+    
+    // Check for saved preference or system preference
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    // Set initial theme
+    if (savedTheme) {
+      html.setAttribute('data-theme', savedTheme);
+    } else if (!systemPrefersDark) {
+      html.setAttribute('data-theme', 'light');
+    }
+    // Dark is default, so no need to set if systemPrefersDark or no preference
+    
+    // Toggle handler
+    toggle?.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      
+      if (newTheme === 'dark') {
+        html.removeAttribute('data-theme');
+      } else {
+        html.setAttribute('data-theme', newTheme);
+      }
+      
+      localStorage.setItem('theme', newTheme);
+    });
+  }
+  
+  // Run on initial load
+  initThemeToggle();
+  
+  // Re-run on Astro page transitions
+  document.addEventListener('astro:after-swap', initThemeToggle);
+</script>

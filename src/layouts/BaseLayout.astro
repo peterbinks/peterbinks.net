@@ -30,8 +30,16 @@ const currentPath = Astro.url.pathname;
   <meta name="theme-color" content="#1a1410" />
   <title>{title} // PETERBINKS.NET</title>
   
-  <!-- Preconnect for performance -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- Prevent flash of wrong theme -->
+  <script is:inline>
+    (function() {
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'light' || (!saved && !prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
 </head>
 <body>
   <Scanlines />
