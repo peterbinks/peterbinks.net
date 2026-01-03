@@ -1,0 +1,160 @@
+---
+// Color picker component - swaps accent color site-wide
+const colors = [
+  { name: 'amber', label: 'Amber' },
+  { name: 'cyan', label: 'Cyan' },
+  { name: 'magenta', label: 'Magenta' },
+  { name: 'green', label: 'Green' },
+];
+---
+
+<div class="color-picker" id="color-picker">
+  <button 
+    class="color-picker-toggle" 
+    id="color-picker-toggle"
+    aria-label="Change accent color"
+    aria-expanded="false"
+  >
+    <span class="color-swatch current"></span>
+  </button>
+  <div class="color-picker-options" id="color-picker-options">
+    {colors.map((color) => (
+      <button 
+        data-accent={color.name} 
+        class={`color-swatch ${color.name}`}
+        aria-label={color.label}
+        title={color.label}
+      ></button>
+    ))}
+  </div>
+</div>
+
+<style is:global>
+  .color-picker {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .color-picker-toggle {
+    background: none;
+    border: 1px solid var(--border-default);
+    padding: var(--space-1) var(--space-2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.15s ease;
+    font-size: var(--font-size-xs);
+  }
+
+  .color-picker-toggle:hover {
+    border-color: var(--accent);
+  }
+
+  .color-swatch {
+    /* Match the line-height of text in theme toggle (body line-height is 1.6) */
+    width: calc(var(--font-size-xs) * 1.6);
+    height: calc(var(--font-size-xs) * 1.6);
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+  }
+
+  .color-swatch:hover {
+    transform: scale(1.1);
+  }
+
+  .color-swatch.current {
+    background-color: var(--accent);
+  }
+
+  .color-swatch.amber {
+    background-color: oklch(0.7 0.18 55);
+  }
+
+  .color-swatch.cyan {
+    background-color: oklch(0.75 0.15 210);
+  }
+
+  .color-swatch.magenta {
+    background-color: oklch(0.7 0.2 320);
+  }
+
+  .color-swatch.green {
+    background-color: oklch(0.75 0.18 145);
+  }
+
+  .color-picker-options {
+    display: none;
+    gap: var(--space-1);
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: var(--space-1);
+    padding: var(--space-1);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    z-index: 100;
+  }
+
+  .color-picker-options.open {
+    display: flex;
+  }
+
+  .color-picker-options .color-swatch {
+    padding: 0;
+  }
+</style>
+
+<script>
+  function initColorPicker() {
+    const picker = document.getElementById('color-picker');
+    const toggle = document.getElementById('color-picker-toggle');
+    const options = document.getElementById('color-picker-options');
+    const swatches = options?.querySelectorAll('.color-swatch');
+    const html = document.documentElement;
+
+    if (!toggle || !options || !swatches) return;
+
+    // Prevent multiple listeners
+    if (toggle.getAttribute('data-initialized')) return;
+    toggle.setAttribute('data-initialized', 'true');
+
+    // Toggle open/close
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = options.classList.contains('open');
+      options.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+    });
+
+    // Handle swatch clicks
+    swatches.forEach((swatch) => {
+      swatch.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const accent = (swatch as HTMLElement).getAttribute('data-accent');
+        if (accent) {
+          html.setAttribute('data-accent', accent);
+          localStorage.setItem('accent', accent);
+        }
+        options.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!picker?.contains(e.target as Node)) {
+        options.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  // Run on initial load
+  initColorPicker();
+
+  // Re-run on Astro page transitions
+  document.addEventListener('astro:after-swap', initColorPicker);
+</script>
