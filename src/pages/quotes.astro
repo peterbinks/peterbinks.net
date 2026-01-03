@@ -2,14 +2,14 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const quotes = [
-  { quote: "Never half ass two things. Whole ass one thing.", author: '<a href="http://www.youtube.com/watch?v=zl-HalherjQ">Ron Swanson</a>' },
-  { quote: "Everything Happens So Much", author: '<a href="https://twitter.com/Horse_ebooks/status/218439593240956928">Horse Ebooks</a>' },
+  { quote: "Never half ass two things. Whole ass one thing.", author: "Ron Swanson" },
+  { quote: "Everything Happens So Much", author: "Horse_ebooks" },
   { quote: "Attract them by the way you live.", author: "Saint Augustine" },
-  { quote: "They can't eat you.", author: '<a href="https://www.youtube.com/watch?v=Lk0hSeQ5s_k">Merlin Mann</a>' },
-  { quote: "I'm doing stuff, Lori, things.", author: '<a href="http://www.youtube.com/watch?v=8f6CdZKAk2U">Rick Grimes</a>' },
-  { quote: "I don't want to be a sweetheart. I want to be the fucking love of your life.", author: "Chimamanda Ngozi Adichie, Americanah" },
+  { quote: "They can't eat you.", author: "Merlin Mann" },
+  { quote: "I'm doing stuff, Lori, things.", author: "Rick Grimes" },
+  { quote: "I don't want to be a sweetheart. I want to be the fucking love of your life.", author: "Chimamanda Ngozi Adichie" },
   { quote: "A long stretch of road will teach you more about yourself than a hundred years of quiet.", author: "Patrick Rothfuss" },
-  { quote: "And all at once, I knew, I was not magnificent.", author: "Bon Iver (Holocene)" },
+  { quote: "And all at once, I knew, I was not magnificent.", author: "Bon Iver" },
   { quote: "Jesus is greater than I have ever portrayed him to be.", author: "John Piper" },
   { quote: "I wish there was a way to know you're in the good ol' days, before you've actually left them.", author: "Andy Bernard" },
   { quote: "It is the mark of an educated mind to entertain a thought without accepting it.", author: "Aristotle" },
@@ -18,16 +18,39 @@ const quotes = [
 ];
 ---
 
-<BaseLayout title="Quotes">
-  <div class="container">
-    <h1>Quotes</h1>
-    <div class="quotes">
-      {quotes.map((item) => (
-        <blockquote>
-          {item.quote}<br />
-          <span class="author" set:html={`&mdash; ${item.author}`} />
-        </blockquote>
-      ))}
-    </div>
-  </div>
+<BaseLayout title="TRANSMISSION.LOG">
+  <header class="page-header">
+    <h1 class="terminal-prompt">TRANSMISSION.LOG</h1>
+    <p class="page-description">Intercepted signals and wisdom from across the network.</p>
+  </header>
+
+  <hr class="section-divider double-line" />
+
+  <section class="quotes-list">
+    {quotes.map((item, index) => (
+      <div class="quote-block">
+        <div class="quote-text">{item.quote}</div>
+        <div class="quote-author">{item.author.toUpperCase()}</div>
+      </div>
+    ))}
+  </section>
 </BaseLayout>
+
+<style>
+  .page-header {
+    margin-bottom: var(--space-5);
+  }
+
+  .page-header h1 {
+    margin-bottom: var(--space-2);
+  }
+
+  .page-description {
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+  }
+
+  .quotes-list {
+    margin-top: var(--space-5);
+  }
+</style>

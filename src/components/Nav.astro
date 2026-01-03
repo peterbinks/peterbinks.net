@@ -1,0 +1,38 @@
+---
+// Terminal-style navigation with bracket links and glitch hover effect
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '' } = Astro.props;
+
+const navItems = [
+  { href: '/', label: 'HOME' },
+  { href: '/blog', label: 'BLOG' },
+  { href: '/work', label: 'WORK' },
+  { href: '/quotes', label: 'QUOTES' },
+  { href: '/reading', label: 'READING' },
+  { href: '/about', label: 'ABOUT' },
+];
+
+function isActive(href: string, current: string): boolean {
+  if (href === '/') return current === '/';
+  return current.startsWith(href);
+}
+---
+
+<nav>
+  <ul class="nav-list">
+    {navItems.map((item) => (
+      <li>
+        <a 
+          href={item.href} 
+          class:list={['nav-link', 'glitch', { active: isActive(item.href, currentPath) }]}
+          data-text={item.label}
+        >
+          {item.label}
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>
