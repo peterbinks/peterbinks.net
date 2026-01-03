@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const projects = [
+  {
+    slug: "pawar-2018",
+    title: "Pawar 2018",
+    image: "/images/work/6-pawar-2018/pawarhome.png",
+    tags: ["Front End Development", "WordPress", "Gulp"]
+  },
+  {
+    slug: "expo-chicago",
+    title: "Expo Chicago",
+    image: "/images/work/5-expo-chicago/expo.png",
+    tags: ["Front End Development", "Rails"]
+  },
+  {
+    slug: "art-design-chicago",
+    title: "Art Design Chicago",
+    image: "/images/work/4-art-design-chicago/adc.png",
+    tags: ["Front End Development", "Rails"]
+  },
+  {
+    slug: "pozen",
+    title: "Pozen Family Center for Human Rights",
+    image: "/images/work/3-pozen/pozen.jpg",
+    tags: ["Front End Development", "SASS", "Rails"]
+  },
+  {
+    slug: "uwsheltermedicine",
+    title: "University of Wisconsin Shelter Medicine",
+    image: "/images/work/2-uwsheltermedicine/uwsheltermedicine.jpg",
+    tags: ["Front End Development", "SASS", "Rails"]
+  },
+  {
+    slug: "alliant-credit-union",
+    title: "Alliant Credit Union",
+    image: "/images/work/1-alliant-credit-union/alliant.jpg",
+    tags: ["Front End Development", "Expression Engine", "SASS", "Gulp"]
+  },
+  {
+    slug: "thinking-money",
+    title: "Thinking Money",
+    image: null,
+    tags: ["Cordova", "D3js", "GSAP", "Javascript", "iOS"]
+  },
+];
+---
+
+<BaseLayout title="Work">
+  <section>
+    <div class="container">
+      <div class="work-content">
+        {projects.map((project) => (
+          <a class="project" href={`/work/${project.slug}`}>
+            <h2 class="project-title">{project.title}</h2>
+            {project.image && (
+              <div class="project-image">
+                <img src={project.image} alt={project.title} />
+              </div>
+            )}
+            <ul class="article-tag-list">
+              {project.tags.map((tag) => (
+                <li class="article-tag"><span class="check">&check;</span> {tag}</li>
+              ))}
+            </ul>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

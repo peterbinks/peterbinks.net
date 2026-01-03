@@ -1,5 +1,0 @@
-Title: Colophon
-
-----
-
-Text: This site was made with (link: http://getkirby.com text:kirby)

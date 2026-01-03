@@ -1,0 +1,30 @@
+name: NFSN Deploy
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+
+      - name: Setup npm
+        run: |
+          npm install npm@11
+          npm --version
+
+      - name: NPM Install
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy
+        run: >
+          sshpass -p "${{ secrets.NFSN_PASSWORD }}" rsync -avz -e "ssh -o StrictHostKeyChecking=no" --delete dist/ "${{ secrets.NFSN_USERNAME }}"@"${{ secrets.NFSN_HOSTNAME }}":/home/public

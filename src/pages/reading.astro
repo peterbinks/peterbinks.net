@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const books = [
+  {
+    title: "Red Mars",
+    image: "/images/reading/m1_red-mars.jpg",
+    description: "Red Mars is a story of early attempts to terraform and colonize Mars. Robinson does a great job of being as scientifically accurate as possible, while detailing a plausible way for Mars to one day be colonized."
+  },
+];
+---
+
+<BaseLayout title="Reading">
+  <div class="container books">
+    <h1>The Books On My Nightstand</h1>
+    {books.map((book) => (
+      <div class="book">
+        <h2>{book.title}</h2>
+        {book.image && (
+          <figure class="book-cover">
+            <img src={book.image} alt={book.title} />
+          </figure>
+        )}
+        <p>{book.description}</p>
+      </div>
+    ))}
+  </div>
+</BaseLayout>

@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const quotes = [
+  { quote: "Never half ass two things. Whole ass one thing.", author: '<a href="http://www.youtube.com/watch?v=zl-HalherjQ">Ron Swanson</a>' },
+  { quote: "Everything Happens So Much", author: '<a href="https://twitter.com/Horse_ebooks/status/218439593240956928">Horse Ebooks</a>' },
+  { quote: "Attract them by the way you live.", author: "Saint Augustine" },
+  { quote: "They can't eat you.", author: '<a href="https://www.youtube.com/watch?v=Lk0hSeQ5s_k">Merlin Mann</a>' },
+  { quote: "I'm doing stuff, Lori, things.", author: '<a href="http://www.youtube.com/watch?v=8f6CdZKAk2U">Rick Grimes</a>' },
+  { quote: "I don't want to be a sweetheart. I want to be the fucking love of your life.", author: "Chimamanda Ngozi Adichie, Americanah" },
+  { quote: "A long stretch of road will teach you more about yourself than a hundred years of quiet.", author: "Patrick Rothfuss" },
+  { quote: "And all at once, I knew, I was not magnificent.", author: "Bon Iver (Holocene)" },
+  { quote: "Jesus is greater than I have ever portrayed him to be.", author: "John Piper" },
+  { quote: "I wish there was a way to know you're in the good ol' days, before you've actually left them.", author: "Andy Bernard" },
+  { quote: "It is the mark of an educated mind to entertain a thought without accepting it.", author: "Aristotle" },
+  { quote: "Nerds like us are allowed to be unironically enthusiastic about stuff. When people call people nerds, mostly what they're saying is 'you like stuff.' Which is just not a good insult at all.", author: "John Green" },
+  { quote: "The sexiest thing in the entire world is being really smart. And being thoughtful. And being generous. Everything else is crap, I promise you. It's just crap that people try to sell to you to make you feel like less. So don't buy it. Be smart. Be thoughtful. And be generous.", author: "Ashton Kutcher" },
+];
+---
+
+<BaseLayout title="Quotes">
+  <div class="container">
+    <h1>Quotes</h1>
+    <div class="quotes">
+      {quotes.map((item) => (
+        <blockquote>
+          {item.quote}<br />
+          <span class="author" set:html={`&mdash; ${item.author}`} />
+        </blockquote>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
