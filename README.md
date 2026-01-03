@@ -73,3 +73,5 @@ Post content here...
 ### Other Pages
 
 Quotes, reading list, and work projects are currently hardcoded in their respective page files in `src/pages/`. Edit those directly.
+
+small edit
