@@ -1,0 +1,61 @@
+---
+// Typing text animation component
+// Text types out character by character with a blinking cursor
+interface Props {
+  text: string;
+  speed?: number; // ms per character
+  delay?: number; // ms before starting
+  tag?: 'p' | 'span' | 'h1' | 'h2' | 'h3';
+  class?: string;
+}
+
+const { 
+  text, 
+  speed = 50, 
+  delay = 500,
+  tag = 'p',
+  class: className = ''
+} = Astro.props;
+
+const Tag = tag;
+const id = `typing-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+<Tag class:list={['typing-text', className]} id={id} data-text={text} data-speed={speed} data-delay={delay}>
+  <span class="typing-content"></span><span class="cursor"></span>
+</Tag>
+
+<script>
+  function initTypingText() {
+    const elements = document.querySelectorAll('.typing-text');
+    
+    elements.forEach((el) => {
+      const content = el.querySelector('.typing-content');
+      const text = el.getAttribute('data-text') || '';
+      const speed = parseInt(el.getAttribute('data-speed') || '50');
+      const delay = parseInt(el.getAttribute('data-delay') || '500');
+      
+      if (!content || el.getAttribute('data-initialized')) return;
+      el.setAttribute('data-initialized', 'true');
+      
+      let index = 0;
+      
+      setTimeout(() => {
+        const typeChar = () => {
+          if (index < text.length) {
+            content.textContent += text.charAt(index);
+            index++;
+            setTimeout(typeChar, speed);
+          }
+        };
+        typeChar();
+      }, delay);
+    });
+  }
+  
+  // Run on initial load
+  initTypingText();
+  
+  // Re-run on Astro page transitions
+  document.addEventListener('astro:after-swap', initTypingText);
+</script>

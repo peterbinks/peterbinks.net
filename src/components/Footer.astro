@@ -1,38 +1,52 @@
 ---
-const socialLinks = [
-  { href: 'https://twitter.com/peterbinks', label: 'Twitter', id: 'twitterIcon' },
-  { href: 'https://codepen.io/peterbinks', label: 'Codepen', id: 'codepenIcon' },
-  { href: 'https://instagram.com/peterbinks', label: 'Instagram', id: 'instagramIcon' },
-  { href: 'https://github.com/peterbinks', label: 'Github', id: 'githubIcon' },
-  { href: 'https://linkedin.com/in/peterbinkowski', label: 'LinkedIn', id: 'linkedinIcon' },
-  { href: 'mailto:peter@peterbinks.net', label: 'Email', id: 'emailIcon' },
-];
-
+// Terminal-style EOF footer
 const currentYear = new Date().getFullYear();
-const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 ---
 
-<footer>
-  <div class="container">
-    <div class="columns six offset-by-three places">
-      <h3>How To Stalk Me:</h3>
-      <ul>
-        {socialLinks.map((link) => (
-          <li id={link.id}><a href={link.href}>{link.label}</a></li>
-        ))}
-      </ul>
-    </div>
-    <div class="copyright">
-      <span>&copy; {currentYear}</span>
-      <span>Have a great <span id="day"></span></span>
-    </div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="eof">[EOF]</span>
+    <span class="footer-divider">//</span>
+    <span>peterbinks.net v3.0</span>
+    <span class="footer-divider">//</span>
+    <span>est. 2016</span>
+    <span class="footer-divider">//</span>
+    <span>made with <span class="heart">&lt;3</span> in chicago</span>
+    <span class="footer-divider">//</span>
+    <span>&copy; {currentYear}</span>
   </div>
 </footer>
 
-<script>
-  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  const dayElement = document.getElementById('day');
-  if (dayElement) {
-    dayElement.textContent = days[new Date().getDay()];
+<style>
+  .site-footer {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    width: 100%;
   }
-</script>
+
+  .footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    align-items: center;
+  }
+
+  .eof {
+    color: var(--accent);
+  }
+
+  .footer-divider {
+    color: var(--border-default);
+  }
+
+  .heart {
+    color: var(--accent);
+  }
+
+  @media (max-width: 600px) {
+    .footer-inner {
+      justify-content: center;
+      text-align: center;
+    }
+  }
+</style>

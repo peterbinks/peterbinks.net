@@ -1,25 +1,108 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import TypingText from '../components/TypingText.astro';
+import { getCollection } from 'astro:content';
+
+// Get latest blog posts
+const posts = (await getCollection('blog'))
+  .filter(post => !post.data.draft)
+  .sort((a, b) => {
+    const dateA = a.data.date ?? new Date(0);
+    const dateB = b.data.date ?? new Date(0);
+    return dateB.getTime() - dateA.getTime();
+  })
+  .slice(0, 3);
+
+// Format date helper
+function formatDate(date: Date | undefined): string {
+  if (!date) return '----.--.--';
+  return date.toISOString().split('T')[0].replace(/-/g, '.');
+}
+
+// Work projects (latest 3)
+const projects = [
+  { title: "Pawar 2018", tags: "wordpress, gulp" },
+  { title: "Expo Chicago", tags: "rails, scss" },
+  { title: "Art Design Chicago", tags: "rails" },
+];
 ---
 
-<BaseLayout title="Home">
-  <section id="main">
-    <div class="container">
-      <div class="seven columns intro">
-        <h1><a href="/about">I'm Peter.</a></h1>
-        <h1>I'm a Designer | Developer with an interest in Typography, Web Animations, and Donuts.</h1>
-      </div>
-      <div class="five columns currently">
-        <h3>Currently I am:</h3>
-        <ul>
-          <li><h4>Working making internet things at <a href="http://neotericdesign.com">Neoteric</a>.</h4></li>
-          <li><h4>Taking on a limited number of freelance clients, so <a href="mailto:peter@peterbinks.net">send me an email</a>, and lets work together.</h4></li>
-          <li><h4>Working on putting together my wedding(!).</h4></li>
-          <li><h4>Handling website things for the next governor of Illinois, <a href="http://pawar2018.com">Ameya Pawar</a>.</h4></li>
-          <li><h4>Daydreaming about returning to Iceland.</h4></li>
-        </ul>
-        <small>updated 03/17/2017 @ chicago, il</small>
-      </div>
+<BaseLayout title="HOME">
+  <section class="hero">
+    <div class="intro">
+      <TypingText 
+        text="> I'm Peter." 
+        tag="h2" 
+        speed={60} 
+        delay={300}
+        class="hero-title"
+      />
+      <p class="hero-subtitle terminal-prompt">
+        Design Engineer // Typography, Web Animations, and Donuts
+      </p>
     </div>
   </section>
+
+  <hr class="section-divider" />
+
+  <section class="latest-posts">
+    <h3 class="section-title">LATEST.DISPATCH</h3>
+    <ul class="list-dotted">
+      {posts.map((post) => (
+        <li>
+          <span class="date">[{formatDate(post.data.date)}]</span>
+          <span class="title">
+            <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+          </span>
+          <span class="leader"></span>
+          <span class="action">[->]</span>
+        </li>
+      ))}
+    </ul>
+    <a href="/blog" class="link-arrow">view all dispatches</a>
+  </section>
+
+  <hr class="section-divider" />
+
+  <section class="latest-work">
+    <h3 class="section-title">RECENT.WORK</h3>
+    <ul class="list-dotted">
+      {projects.map((project) => (
+        <li>
+          <span class="title">{project.title}</span>
+          <span class="leader"></span>
+          <span class="action">{project.tags}</span>
+        </li>
+      ))}
+    </ul>
+    <a href="/work" class="link-arrow">view all projects</a>
+  </section>
 </BaseLayout>
+
+<style>
+  .hero {
+    margin-bottom: var(--space-6);
+  }
+
+  .hero-title {
+    font-size: var(--font-size-2xl);
+    color: var(--accent);
+    margin-bottom: var(--space-3);
+  }
+
+  .hero-subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+  }
+
+  .latest-posts,
+  .latest-work {
+    margin-bottom: var(--space-5);
+  }
+
+  .link-arrow {
+    display: inline-block;
+    margin-top: var(--space-3);
+    font-size: var(--font-size-sm);
+  }
+</style>

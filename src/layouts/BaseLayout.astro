@@ -1,17 +1,23 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Sidebar from '../components/Sidebar.astro';
+import Scanlines from '../components/Scanlines.astro';
 import '../styles/main.scss';
 
 interface Props {
   title?: string;
   description?: string;
+  showSidebar?: boolean;
 }
 
 const { 
-  title = 'Peter Binkowski', 
-  description = 'Designer & Developer' 
+  title = 'PETERBINKS.NET', 
+  description = 'Design Engineer // Chicago, IL',
+  showSidebar = true
 } = Astro.props;
+
+const currentPath = Astro.url.pathname;
 ---
 
 <!DOCTYPE html>
@@ -21,12 +27,27 @@ const {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content={description} />
   <meta name="robots" content="index, follow" />
-  <title>{title} - Peter Binkowski</title>
-  <link rel="stylesheet" href="https://use.typekit.net/ibz5ikj.css">
+  <meta name="theme-color" content="#1a1410" />
+  <title>{title} // PETERBINKS.NET</title>
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
 </head>
 <body>
-  <Header />
-  <slot />
-  <Footer />
+  <Scanlines />
+  
+  <div class="site-wrapper">
+    <Header currentPath={currentPath} />
+    
+    <main class="site-main">
+      <div class="content-area">
+        <slot />
+      </div>
+      
+      {showSidebar && <Sidebar />}
+    </main>
+    
+    <Footer />
+  </div>
 </body>
 </html>

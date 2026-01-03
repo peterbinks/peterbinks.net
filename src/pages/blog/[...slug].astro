@@ -12,20 +12,113 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await post.render();
+
+// Format date helper
+function formatDate(date: Date | undefined): string {
+  if (!date) return '----.--.--';
+  return date.toISOString().split('T')[0].replace(/-/g, '.');
+}
 ---
 
 <BaseLayout title={post.data.title}>
-  <section>
-    <div class="container">
-      <div class="blogarticle">
-        <article>
-          <h1 class="post-title">{post.data.title}</h1>
-          <article class="post">
-            <Content />
-          </article>
-          <a href="/blog">Back...</a>
-        </article>
+  <article class="blog-post">
+    <header class="post-header">
+      <div class="post-meta">
+        <span class="terminal-prompt">DISPATCH.LOG/{post.slug}</span>
       </div>
+      <hr class="section-divider double-line" />
+      <div class="post-info">
+        <span>DATE: {formatDate(post.data.date)}</span>
+      </div>
+      <hr class="section-divider" />
+    </header>
+
+    <h1 class="post-title">{post.data.title}</h1>
+
+    <div class="post-content">
+      <Content />
     </div>
-  </section>
+
+    <hr class="section-divider double-line" />
+
+    <footer class="post-footer">
+      <a href="/blog" class="back-link">[&lt;- BACK TO DISPATCH.LOG]</a>
+    </footer>
+  </article>
 </BaseLayout>
+
+<style>
+  .blog-post {
+    max-width: 70ch;
+  }
+
+  .post-header {
+    margin-bottom: var(--space-5);
+  }
+
+  .post-meta {
+    margin-bottom: var(--space-3);
+  }
+
+  .post-info {
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+    padding: var(--space-2) 0;
+  }
+
+  .post-title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-5);
+    text-transform: none;
+    letter-spacing: normal;
+  }
+
+  .post-content {
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  .post-content :global(h2) {
+    font-size: var(--font-size-xl);
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-3);
+    color: var(--accent);
+  }
+
+  .post-content :global(h3) {
+    font-size: var(--font-size-lg);
+    margin-top: var(--space-5);
+    margin-bottom: var(--space-3);
+  }
+
+  .post-content :global(p) {
+    margin-bottom: var(--space-4);
+  }
+
+  .post-content :global(a) {
+    color: var(--accent);
+    border-bottom: 1px dashed var(--accent-dim);
+  }
+
+  .post-content :global(a:hover) {
+    border-bottom-style: solid;
+  }
+
+  .post-content :global(ul),
+  .post-content :global(ol) {
+    margin-bottom: var(--space-4);
+    padding-left: var(--space-5);
+  }
+
+  .post-content :global(li) {
+    margin-bottom: var(--space-2);
+  }
+
+  .post-footer {
+    margin-top: var(--space-5);
+  }
+
+  .back-link {
+    font-size: var(--font-size-sm);
+  }
+</style>

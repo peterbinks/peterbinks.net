@@ -2,25 +2,84 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="About">
-  <section>
-    <div class="container">
-      <div class="content">
-        <img src="/images/about/fullsizerender-5.jpg" alt="Peter Binkowski" title="Melody make me look so good" />
+<BaseLayout title="ABOUT.TXT">
+  <header class="page-header">
+    <h1 class="terminal-prompt">ABOUT.TXT</h1>
+    <p class="page-description">System information and documentation.</p>
+  </header>
 
-        <h2>About Peter</h2>
-        <p>My name is Peter, I make websites, and I live in Chicago.</p>
+  <hr class="section-divider double-line" />
 
-        <p>I enjoy a well brewed cup of coffee, rainy days, and the oxford comma. When not behind a screen you I am reading a <a href="/reading">book</a>, making music on my drum kit, or spending quality time with my <a href="http://wanderingsnippets.com">wife</a>.</p>
+  <section class="about-content">
+    <div class="terminal-box" data-title="USER.PROFILE">
+      <h2 class="section-heading">> whoami</h2>
+      <p>My name is Peter. I make websites. I live in Chicago.</p>
+      <p>I enjoy a well brewed cup of coffee, rainy days, and the oxford comma. When not behind a screen I am reading a <a href="/reading">book</a>, making music on my drum kit, or spending quality time with my wife.</p>
+    </div>
 
-        <p>You can take a look at my <a href="https://www.dropbox.com/s/240drl23ekbu9q9/resume.pdf?dl=0">resumé</a>.</p>
+    <div class="terminal-box" data-title="INTERESTS">
+      <h2 class="section-heading">> cat interests.log</h2>
+      <ul class="interest-list">
+        <li>Typography & Type Design</li>
+        <li>Web Animations & Interactions</li>
+        <li>Design Systems</li>
+        <li>Accessibility</li>
+        <li>Donuts</li>
+      </ul>
+    </div>
 
-        <h2>About The Site</h2>
+    <div class="terminal-box" data-title="SYSTEM.INFO">
+      <h2 class="section-heading">> uname -a</h2>
+      <p>This site is the hundredth revision of peterbinks.net. I've used half a dozen CMSs, and put up a bunch of junk over the years.</p>
+      <p>This iteration is built on <a href="https://astro.build">Astro</a> with a terminal/cyberpunk aesthetic. Pure monospace typography. No frameworks, just vibes.</p>
+    </div>
 
-        <p>This site is about the hundredth revision of peterbinks.net. I've used half a dozen cms's, and put up a bunch of junk over the years.</p>
-
-        <p>This iteration of the site is built on <a href="https://astro.build">Astro</a>. The Typefaces you see are <a href="https://typekit.com/fonts/fira-sans">Fira</a> and <a href="https://typekit.com/fonts/effra">Effra</a>.</p>
-      </div>
+    <div class="terminal-box" data-title="CONTACT">
+      <h2 class="section-heading">> ping peter</h2>
+      <p>The best way to reach me is via <a href="mailto:peter@peterbinks.net">email</a>. You can also find me on <a href="https://twitter.com/peterbinks">Twitter</a> or <a href="https://github.com/peterbinks">GitHub</a>.</p>
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .page-header {
+    margin-bottom: var(--space-5);
+  }
+
+  .page-header h1 {
+    margin-bottom: var(--space-2);
+  }
+
+  .page-description {
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+  }
+
+  .about-content {
+    margin-top: var(--space-5);
+  }
+
+  .section-heading {
+    font-size: var(--font-size-base);
+    color: var(--accent);
+    margin-bottom: var(--space-4);
+    text-transform: none;
+    letter-spacing: normal;
+  }
+
+  .interest-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .interest-list li {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-2);
+  }
+
+  .interest-list li::before {
+    content: "- ";
+    color: var(--accent);
+  }
+</style>

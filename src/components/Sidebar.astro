@@ -1,0 +1,80 @@
+---
+// System status sidebar with uptime calculator, links, and now reading
+// Birthday: August 7, 1991
+
+const birthday = new Date(1991, 7, 7); // Month is 0-indexed
+const now = new Date();
+
+// Calculate age in years, months, days
+let years = now.getFullYear() - birthday.getFullYear();
+let months = now.getMonth() - birthday.getMonth();
+let days = now.getDate() - birthday.getDate();
+
+if (days < 0) {
+  months--;
+  const lastMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+  days += lastMonth.getDate();
+}
+
+if (months < 0) {
+  years--;
+  months += 12;
+}
+
+const uptime = `${years}y ${months}m ${days}d`;
+
+const socialLinks = [
+  { href: 'https://twitter.com/peterbinks', label: 'twitter' },
+  { href: 'https://github.com/peterbinks', label: 'github' },
+  { href: 'https://codepen.io/peterbinks', label: 'codepen' },
+  { href: 'https://linkedin.com/in/peterbinkowski', label: 'linkedin' },
+  { href: 'mailto:peter@peterbinks.net', label: 'email' },
+];
+
+// Current book - you can update this manually or pull from an API later
+const currentBook = {
+  title: "Red Mars",
+  author: "K.S. Robinson"
+};
+---
+
+<aside class="sidebar">
+  <section class="sidebar-section">
+    <h3 class="sidebar-title">SYS.STATUS</h3>
+    <div class="status-row">
+      <span class="status-label">LOC:</span>
+      <span class="status-value">chicago, il</span>
+    </div>
+    <div class="status-row">
+      <span class="status-label">UPT:</span>
+      <span class="status-value">{uptime}</span>
+    </div>
+    <div class="status-row">
+      <span class="status-label">STS:</span>
+      <span class="status-value">online</span>
+    </div>
+  </section>
+
+  <section class="sidebar-section">
+    <h3 class="sidebar-title">LINKS.OUT</h3>
+    <ul class="sidebar-list">
+      {socialLinks.map((link) => (
+        <li>
+          <a href={link.href} target="_blank" rel="noopener noreferrer">
+            [{link.label}]
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="sidebar-section">
+    <h3 class="sidebar-title">NOW.READING</h3>
+    <div class="status-row">
+      <span class="status-value">{currentBook.title}</span>
+    </div>
+    <div class="status-row">
+      <span class="status-label">{currentBook.author}</span>
+    </div>
+  </section>
+</aside>
