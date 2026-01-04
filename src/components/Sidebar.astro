@@ -24,17 +24,19 @@ if (months < 0) {
 const uptime = `${years}y ${months}m ${days}d`;
 
 const socialLinks = [
-  { href: 'https://twitter.com/peterbinks', label: 'twitter' },
-  { href: 'https://github.com/peterbinks', label: 'github' },
-  { href: 'https://codepen.io/peterbinks', label: 'codepen' },
-  { href: 'https://linkedin.com/in/peterbinkowski', label: 'linkedin' },
-  { href: 'mailto:peter@peterbinks.net', label: 'email' },
+  { href: "https://twitter.com/peterbinks", label: "twitter" },
+  { href: "https://bsky.app/profile/peterbinks.bsky.social", label: "bsky" },
+  { href: "https://social.lol/@peterbinks", label: "mastodon" },
+  { href: "https://github.com/peterbinks", label: "github" },
+  { href: "https://codepen.io/peterbinks", label: "codepen" },
+  { href: "https://linkedin.com/in/peterbinkowski", label: "linkedin" },
+  { href: "mailto:peter@peterbinks.net", label: "email" },
 ];
 
 // Current book - you can update this manually or pull from an API later
 const currentBook = {
   title: "Red Mars",
-  author: "K.S. Robinson"
+  author: "K.S. Robinson",
 };
 ---
 
@@ -58,13 +60,15 @@ const currentBook = {
   <section class="sidebar-section">
     <h3 class="sidebar-title">LINKS.OUT</h3>
     <ul class="sidebar-list">
-      {socialLinks.map((link) => (
-        <li>
-          <a href={link.href} target="_blank" rel="noopener noreferrer">
-            [{link.label}]
-          </a>
-        </li>
-      ))}
+      {
+        socialLinks.map((link) => (
+          <li>
+            <a href={link.href} target="_blank" rel="noopener noreferrer">
+              [{link.label}]
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </section>
 
