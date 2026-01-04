@@ -4,40 +4,37 @@ interface Props {
   currentPath?: string;
 }
 
-const { currentPath = '' } = Astro.props;
+const { currentPath = "" } = Astro.props;
 
 const navItems = [
-  { href: '/', label: 'HOME' },
-  { href: '/blog', label: 'BLOG' },
-  { href: '/work', label: 'WORK' },
-  { href: '/quotes', label: 'QUOTES' },
-  { href: '/reading', label: 'READING' },
-  { href: '/about', label: 'ABOUT' },
+  { href: "/", label: "HOME" },
+  { href: "/blog", label: "BLOG" },
+  { href: "/work", label: "WORK" },
+  { href: "/quotes", label: "QUOTES" },
+  { href: "/reading", label: "READING" },
+  { href: "/about", label: "ABOUT" },
 ];
 
 function isActive(href: string, current: string): boolean {
-  if (href === '/') return current === '/';
+  if (href === "/") return current === "/";
   return current.startsWith(href);
 }
 ---
 
 <nav class="nav-container">
-  <a href="/" class="nav-logo" aria-label="Home">
-    <svg width="16" height="19" viewBox="0 0 165 195" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M82.2095 97.1737L161.21 50.1492L82.2095 3.12473V0L82.1048 0.0623667L82 0V3.12473L3 50.1492L82 97.1737V97.2984L82.1048 97.236L82.2095 97.2984V97.1737ZM82.2095 97.1737L82.1048 97.236L82 97.1737V3.12473L82.1048 3.06237L82.2095 3.12473V97.1737ZM3 145.149L82.2095 192.298V98L3 145.149Z" stroke="currentColor" stroke-width="3"/>
-    </svg>
-  </a>
   <ul class="nav-list">
-    {navItems.map((item) => (
-      <li>
-        <a 
-          href={item.href} 
-          class:list={['nav-link', 'glitch', { active: isActive(item.href, currentPath) }]}
-          data-text={item.label}
-        >
-          {item.label}
-        </a>
-      </li>
-    ))}
+    {
+      navItems.map((item) => (
+        <li>
+          <a
+            href={item.href}
+            class:list={["nav-link", "glitch", { active: isActive(item.href, currentPath) }]}
+            data-text={item.label}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))
+    }
   </ul>
 </nav>

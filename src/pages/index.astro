@@ -30,15 +30,15 @@ const projects = [
 <BaseLayout title="HOME">
   <section class="hero">
     <div class="intro">
-      <TypingText 
-        text="> I'm Peter." 
-        tag="h2" 
-        speed={60} 
+      <TypingText
+        text="Hey there, I'm Peter."
+        tag="h2"
+        speed={60}
         delay={300}
         class="hero-title"
       />
       <p class="hero-subtitle terminal-prompt">
-        Design Engineer // Typography, Web Animations, and Donuts
+        Design Engineer / Web Developer
       </p>
     </div>
   </section>
@@ -55,7 +55,9 @@ const projects = [
             <a href={`/blog/${post.slug}`}>{post.data.title}</a>
           </span>
           <span class="leader"></span>
-          <span class="action">[->]</span>
+          <span class="action">
+            <a href={`/blog/${post.slug}`}>[->]</a>
+          </span>
         </li>
       ))}
     </ul>
