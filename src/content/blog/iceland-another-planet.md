@@ -1,6 +1,7 @@
 ---
 title: "Iceland: Another Planet"
 date: 2016-06-15
+archive: true
 ---
 
 I'm still decompressing from my trip, and I need to write things down before to process. I spent four days in Iceland, and in that time, my friends and I traveled the entire country on the the Ring Road. It's the main highway that literally rings around the entire island, and here are some tips and pictures. Hopefully its helpful. 

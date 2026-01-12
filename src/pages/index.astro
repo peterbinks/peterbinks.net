@@ -5,7 +5,7 @@ import { getCollection } from 'astro:content';
 
 // Get latest blog posts
 const posts = (await getCollection('blog'))
-  .filter(post => !post.data.draft)
+  .filter(post => !post.data.draft && !post.data.archive)
   .sort((a, b) => {
     const dateA = a.data.date ?? new Date(0);
     const dateB = b.data.date ?? new Date(0);
@@ -23,7 +23,7 @@ function formatDate(date: Date | undefined): string {
 const projects = [
   { title: "Kin Insurance", tags: "Design System lead" },
   { title: "Kin Insurance", tags: "Senior Software Engineer" },
-  { title: "Neoteric Design", tags: "Front end dev, and designer" },
+  { title: "Neoteric Design", tags: "Front end dev, & designer" },
 ];
 ---
 
@@ -38,7 +38,7 @@ const projects = [
         class="hero-title"
       />
       <p class="hero-subtitle terminal-prompt">
-        Design Engineer / Web Developer
+        Design Engineer / Pixel Pusher / Leisure Enthusiast
       </p>
     </div>
   </section>
@@ -67,7 +67,7 @@ const projects = [
   <hr class="section-divider" />
 
   <section class="latest-work">
-    <h3 class="section-title">RECENT.WORK</h3>
+    <h3 class="section-title">WORK.HISTORY</h3>
     <ul class="list-dotted">
       {projects.map((project) => (
         <li>

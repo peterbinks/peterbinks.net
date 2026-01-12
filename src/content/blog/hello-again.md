@@ -1,6 +1,7 @@
 ---
 title: "Hello, Again"
 date: 2016-01-01
+archive: true
 ---
 
 This is my first article. Hopefully just the first of many. I talk about this a little bit in [/about](/about) but I've had many a blog, in fact I've written variations on this very post on most of them, however I want a place that can be an archive of my writing.

@@ -1,6 +1,7 @@
 ---
 // System status sidebar with uptime calculator, links, and now reading
 // Birthday: August 7, 1991
+import LastPlayed from './LastPlayed.astro';
 
 const birthday = new Date(1991, 7, 7); // Month is 0-indexed
 const now = new Date();
@@ -71,6 +72,8 @@ const currentBook = {
       }
     </ul>
   </section>
+
+  <LastPlayed />
 
   <section class="sidebar-section">
     <h3 class="sidebar-title">NOW.READING</h3>
