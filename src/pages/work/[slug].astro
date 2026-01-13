@@ -24,22 +24,26 @@ const { Content } = await project.render();
         </span>
       </h1>
       <p class="work-description">{project.data.description}</p>
-      {project.data.tags && project.data.tags.length > 0 && (
-        <div class="project-tags">
-          {project.data.tags.map((tag) => (
-            <span class="project-tag">{tag}</span>
-          ))}
-        </div>
-      )}
+      {
+        project.data.tags && project.data.tags.length > 0 && (
+          <div class="project-tags">
+            {project.data.tags.map((tag) => (
+              <span class="project-tag">{tag}</span>
+            ))}
+          </div>
+        )
+      }
     </header>
 
     <hr class="section-divider double-line" />
 
-    {project.data.image && (
-      <figure class="work-image">
-        <img src={project.data.image} alt={project.data.title} />
-      </figure>
-    )}
+    {
+      project.data.image && (
+        <figure class="work-image">
+          <img src={project.data.image} alt={project.data.title} />
+        </figure>
+      )
+    }
 
     <div class="work-content">
       <Content />

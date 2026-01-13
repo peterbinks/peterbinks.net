@@ -1,15 +1,6 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-
-const books = [
-  {
-    title: "Red Mars",
-    author: "Kim Stanley Robinson",
-    status: "READING",
-    image: "/images/reading/m1_red-mars.jpg",
-    description: "Red Mars is a story of early attempts to terraform and colonize Mars. Robinson does a great job of being as scientifically accurate as possible, while detailing a plausible way for Mars to one day be colonized."
-  },
-];
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { books } from "../data/books";
 ---
 
 <BaseLayout title="LIBRARY.DAT">
@@ -21,20 +12,20 @@ const books = [
   <hr class="section-divider double-line" />
 
   <section class="books-list">
-    {books.map((book) => (
-      <div class="book-entry terminal-box" data-title={book.status}>
-        <div class="book-content">
-          {book.image && (
-            <img src={book.image} alt={book.title} class="book-cover" />
-          )}
-          <div class="book-info">
-            <h2 class="book-title">{book.title}</h2>
-            <div class="book-author">by {book.author}</div>
-            <p class="book-description">{book.description}</p>
+    {
+      books.map((book) => (
+        <div class="book-entry terminal-box" data-title={book.status}>
+          <div class="book-content">
+            {book.image && <img src={book.image} alt={book.title} class="book-cover" />}
+            <div class="book-info">
+              <h2 class="book-title">{book.title}</h2>
+              <div class="book-author">by {book.author}</div>
+              <p class="book-description">{book.description}</p>
+            </div>
           </div>
         </div>
-      </div>
-    ))}
+      ))
+    }
   </section>
 </BaseLayout>
 

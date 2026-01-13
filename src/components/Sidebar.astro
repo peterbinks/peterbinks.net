@@ -2,27 +2,7 @@
 // System status sidebar with uptime calculator, links, and now reading
 // Birthday: August 7, 1991
 import LastPlayed from "./LastPlayed.astro";
-
-const birthday = new Date(1991, 7, 7); // Month is 0-indexed
-const now = new Date();
-
-// Calculate age in years, months, days
-let years = now.getFullYear() - birthday.getFullYear();
-let months = now.getMonth() - birthday.getMonth();
-let days = now.getDate() - birthday.getDate();
-
-if (days < 0) {
-  months--;
-  const lastMonth = new Date(now.getFullYear(), now.getMonth(), 0);
-  days += lastMonth.getDate();
-}
-
-if (months < 0) {
-  years--;
-  months += 12;
-}
-
-const uptime = `${years}y ${months}m ${days}d`;
+import { currentBook } from "../data/books";
 
 const socialLinks = [
   { href: "https://twitter.com/peterbinks", label: "twitter" },
@@ -33,12 +13,6 @@ const socialLinks = [
   { href: "https://linkedin.com/in/peterbinkowski", label: "linkedin" },
   { href: "mailto:peter@peterbinks.net", label: "email" },
 ];
-
-// Current book - you can update this manually or pull from an API later
-const currentBook = {
-  title: "Red Mars",
-  author: "K.S. Robinson",
-};
 ---
 
 <aside class="sidebar">
@@ -77,11 +51,12 @@ const currentBook = {
 
   <section class="sidebar-section">
     <h3 class="sidebar-title">Now Reading</h3>
-    <div class="status-row">
-      <span class="status-value">{currentBook.title}</span>
-    </div>
-    <div class="status-row">
-      <span class="status-label">{currentBook.author}</span>
+    <div class="now-reading-content">
+      <img src={currentBook.thumbnail} alt={currentBook.title} class="book-cover" />
+      <div class="book-info">
+        <span class="book-title">{currentBook.title}</span>
+        <span class="book-author">{currentBook.author}</span>
+      </div>
     </div>
   </section>
 </aside>

@@ -1,9 +1,9 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
 
-const posts = (await getCollection('blog'))
-  .filter(post => !post.data.draft && !post.data.archive)
+const posts = (await getCollection("blog"))
+  .filter((post) => !post.data.draft && !post.data.archive)
   .sort((a, b) => {
     const dateA = a.data.date ?? new Date(0);
     const dateB = b.data.date ?? new Date(0);
@@ -12,8 +12,8 @@ const posts = (await getCollection('blog'))
 
 // Format date helper
 function formatDate(date: Date | undefined): string {
-  if (!date) return '----.--.--';
-  return date.toISOString().split('T')[0].replace(/-/g, '.');
+  if (!date) return "----.--.--";
+  return date.toISOString().split("T")[0].replace(/-/g, ".");
 }
 ---
 
@@ -27,27 +27,31 @@ function formatDate(date: Date | undefined): string {
 
   <section class="posts-list">
     <ul class="list-dotted">
-      {posts.map((post) => (
-        <li>
-          <span class="date">[{formatDate(post.data.date)}]</span>
-          <span class="title">
-            <a href={`/blog/${post.slug}`} class="glitch" data-text={post.data.title}>
-              {post.data.title}
-            </a>
-          </span>
-          <span class="leader"></span>
-          <span class="action">[READ]</span>
-        </li>
-      ))}
+      {
+        posts.map((post) => (
+          <li>
+            <span class="date">[{formatDate(post.data.date)}]</span>
+            <span class="title">
+              <a href={`/blog/${post.slug}`} class="glitch" data-text={post.data.title}>
+                {post.data.title}
+              </a>
+            </span>
+            <span class="leader" />
+            <span class="action">[READ]</span>
+          </li>
+        ))
+      }
     </ul>
   </section>
 
-  {posts.length === 0 && (
-    <div class="empty-state">
-      <p class="terminal-prompt">NO DISPATCHES FOUND</p>
-      <p>Check back later for new transmissions.</p>
-    </div>
-  )}
+  {
+    posts.length === 0 && (
+      <div class="empty-state">
+        <p class="terminal-prompt">NO DISPATCHES FOUND</p>
+        <p>Check back later for new transmissions.</p>
+      </div>
+    )
+  }
 </BaseLayout>
 
 <style>

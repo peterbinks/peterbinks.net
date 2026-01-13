@@ -207,6 +207,11 @@ a:hover {
   text-shadow: none;
 }
 
+@view-transition {
+  navigation: auto;
+  types: slide, forwards;
+}
+
 /* ============================================
    TYPOGRAPHY
    ============================================ */
@@ -606,6 +611,35 @@ blockquote {
 
 .status-value {
   color: var(--text-primary);
+}
+
+/* Now Reading */
+.now-reading-content {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.now-reading-content .book-cover {
+  width: 60px;
+  height: auto;
+  flex-shrink: 0;
+  border: 1px solid var(--border-subtle);
+}
+
+.now-reading-content .book-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.now-reading-content .book-title {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.now-reading-content .book-author {
+  color: var(--text-muted);
+  font-size: var(--font-size-xs);
 }
 
 /* ============================================
