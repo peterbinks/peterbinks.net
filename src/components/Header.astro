@@ -18,14 +18,11 @@ const dateStr = now.toISOString().split("T")[0].replace(/-/g, ".");
 
 <header class="site-header">
   <div class="header-inner">
-    <div class="header-meta">
-      <span class="dateline">[{dateStr}] chicago, il</span>
-      <div class="header-controls">
-        <ThemeToggle />
-        <ColorPicker />
-      </div>
-    </div>
     <Nav currentPath={currentPath} />
+    <div class="header-controls">
+      <ThemeToggle />
+      <ColorPicker />
+    </div>
   </div>
 </header>
 
@@ -38,32 +35,15 @@ const dateStr = now.toISOString().split("T")[0].replace(/-/g, ".");
 
   .header-inner {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: var(--space-4);
-  }
-
-  .header-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: var(--space-4);
-    flex-wrap: wrap;
   }
 
   .header-controls {
     display: flex;
     align-items: center;
     gap: var(--space-2);
+    margin-left: auto;
   }
-
-  .dateline {
-    color: var(--text-muted);
-    font-size: var(--font-size-sm);
-  }
-
-  @media (max-width: 600px) {
-    .header-inner {
-      gap: var(--space-3);
-    }
   }
 </style>

@@ -1,24 +1,25 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const career = [
+  { title: "Kin Insurance", tags: "Design System lead" },
+  { title: "Kin Insurance", tags: "Senior Software Engineer" },
+  { title: "Neoteric Design", tags: "Front end dev, & designer" },
+];
 ---
 
 <BaseLayout title="ABOUT.TXT">
-  <header class="page-header">
-    <h1 class="terminal-prompt">ABOUT.TXT</h1>
-    <p class="page-description">System information and documentation.</p>
-  </header>
-
-  <hr class="section-divider double-line" />
-
   <section class="about-content">
-    <div class="terminal-box" data-title="USER.PROFILE">
-      <h2 class="section-heading">> whoami</h2>
+    <div class="terminal-box" data-title="Profile">
       <p>My name is Peter. I make websites. I live in Chicago.</p>
-      <p>I enjoy a well brewed cup of coffee, rainy days, and the oxford comma. When not behind a screen I am reading a <a href="/reading">book</a>, making music on my drum kit, or spending quality time with my wife.</p>
+      <p>
+        I enjoy a well brewed cup of coffee, rainy days, and the oxford comma. When not behind a screen I am reading a <a
+          href="/reading">book</a
+        >, making music on my drum kit, or spending quality time with my wife.
+      </p>
     </div>
 
-    <div class="terminal-box" data-title="INTERESTS">
-      <h2 class="section-heading">> cat interests.log</h2>
+    <div class="terminal-box" data-title="Interests">
       <ul class="interest-list">
         <li>Typography & Type Design</li>
         <li>Web Animations & Interactions</li>
@@ -28,15 +29,37 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </ul>
     </div>
 
-    <div class="terminal-box" data-title="SYSTEM.INFO">
-      <h2 class="section-heading">> uname -a</h2>
-      <p>This site is the hundredth revision of peterbinks.net. I've used half a dozen CMSs, and put up a bunch of junk over the years.</p>
-      <p>This iteration is built on <a href="https://astro.build">Astro</a> with a terminal/cyberpunk aesthetic. Pure monospace typography. No frameworks, just vibes.</p>
+    <div class="terminal-box" data-title="Experience">
+      <ul class="list-dotted">
+        {
+          career.map((job) => (
+            <li>
+              <span class="title">{job.title}</span>
+              <span class="leader" />
+              <span class="action">{job.tags}</span>
+            </li>
+          ))
+        }
+      </ul>
     </div>
 
-    <div class="terminal-box" data-title="CONTACT">
-      <h2 class="section-heading">> ping peter</h2>
-      <p>The best way to reach me is via <a href="mailto:peter@peterbinks.net">email</a>. You can also find me on <a href="https://twitter.com/peterbinks">Twitter</a> or <a href="https://github.com/peterbinks">GitHub</a>.</p>
+    <div class="terminal-box" data-title="Colophon">
+      <p>
+        This site is the hundredth revision of peterbinks.net. I've used half a dozen CMSs, and put up a bunch of junk
+        over the years.
+      </p>
+      <p>
+        This iteration is built on <a href="https://astro.build">Astro</a> with a terminal/cyberpunk aesthetic. Pure monospace
+        typography. No frameworks, just vibes.
+      </p>
+    </div>
+
+    <div class="terminal-box" data-title="Contact">
+      <p>
+        The best way to reach me is via <a href="mailto:peter@peterbinks.net">email</a>. You can also find me on <a
+          href="https://twitter.com/peterbinks">Twitter</a
+        > or <a href="https://github.com/peterbinks">GitHub</a>.
+      </p>
     </div>
   </section>
 </BaseLayout>

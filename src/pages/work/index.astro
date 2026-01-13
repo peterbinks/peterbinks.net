@@ -1,57 +1,17 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
 
-const projects = [
-  {
-    slug: "pawar-2018",
-    title: "Pawar 2018",
-    description: "Campaign website for Illinois gubernatorial candidate",
-    image: "/images/work/6-pawar-2018/pawarhome.png",
-    tags: ["WordPress", "Gulp", "SCSS"]
-  },
-  {
-    slug: "expo-chicago",
-    title: "Expo Chicago",
-    description: "International art exposition platform",
-    image: "/images/work/5-expo-chicago/expo.png",
-    tags: ["Rails", "SCSS"]
-  },
-  {
-    slug: "art-design-chicago",
-    title: "Art Design Chicago",
-    description: "Citywide art celebration initiative",
-    image: "/images/work/4-art-design-chicago/adc.png",
-    tags: ["Rails", "SCSS"]
-  },
-  {
-    slug: "pozen",
-    title: "Pozen Family Center for Human Rights",
-    description: "University of Chicago research center",
-    image: "/images/work/3-pozen/pozen.jpg",
-    tags: ["Rails", "SASS", "Foundation"]
-  },
-  {
-    slug: "uwsheltermedicine",
-    title: "UW Shelter Medicine",
-    description: "University of Wisconsin shelter medicine program",
-    image: "/images/work/2-uwsheltermedicine/uwsheltermedicine.jpg",
-    tags: ["Rails", "SASS", "Foundation"]
-  },
-  {
-    slug: "alliant-credit-union",
-    title: "Alliant Credit Union",
-    description: "Credit union website redesign",
-    image: "/images/work/1-alliant-credit-union/alliant.jpg",
-    tags: ["Expression Engine", "SASS", "Gulp"]
-  },
-  {
-    slug: "thinking-money",
-    title: "Thinking Money",
-    description: "Interactive iPad experience for ALA exhibition",
-    image: null,
-    tags: ["Cordova", "D3.js", "GSAP", "iOS"]
-  },
-];
+const projects = await getCollection("work", ({ data }) => {
+  return data.draft !== true;
+});
+
+// Sort by order field
+const sortedProjects = projects.sort((a, b) => {
+  const orderA = a.data.order ?? 999;
+  const orderB = b.data.order ?? 999;
+  return orderA - orderB;
+});
 ---
 
 <BaseLayout title="ARCHIVE.WORK">
@@ -63,95 +23,29 @@ const projects = [
   <hr class="section-divider double-line" />
 
   <section class="projects-grid">
-    {projects.map((project) => (
-      <article class="project-card">
-        {project.image && (
-          <div class="project-image">
-            <img src={project.image} alt={project.title} loading="lazy" />
-          </div>
-        )}
-        <div class="project-content">
-          <h2 class="project-title">
-            <span class="glitch" data-text={project.title}>{project.title}</span>
-          </h2>
-          <p class="project-description">{project.description}</p>
-          <div class="project-tags">
-            {project.tags.map((tag) => (
-              <span class="project-tag">{tag}</span>
-            ))}
-          </div>
-        </div>
-      </article>
-    ))}
+    {
+      sortedProjects.map((project) => (
+        <a href={`/work/${project.slug}`} class="project-card-link">
+          <article class="project-card">
+            {project.data.image && (
+              <div class="project-image">
+                <img src={project.data.image} alt={project.data.title} loading="lazy" />
+              </div>
+            )}
+            <div class="project-content">
+              <h2 class="project-title">
+                <span data-text={project.data.title}>{project.data.title}</span>
+              </h2>
+              <p class="project-description">{project.data.description}</p>
+              <div class="project-tags">
+                {project.data.tags?.map((tag) => (
+                  <span class="project-tag">{tag}</span>
+                ))}
+              </div>
+            </div>
+          </article>
+        </a>
+      ))
+    }
   </section>
 </BaseLayout>
-
-<style>
-  .page-header {
-    margin-bottom: var(--space-5);
-  }
-
-  .page-header h1 {
-    margin-bottom: var(--space-2);
-  }
-
-  .page-description {
-    color: var(--text-muted);
-    font-size: var(--font-size-sm);
-  }
-
-  .projects-grid {
-    margin-top: var(--space-5);
-    display: grid;
-    gap: var(--space-4);
-  }
-
-  .project-card {
-    display: grid;
-    grid-template-columns: 8rem 1fr;
-    gap: var(--space-4);
-    align-items: start;
-  }
-
-  .project-image {
-    border: 1px solid var(--border-default);
-    overflow: hidden;
-    aspect-ratio: 3 / 2;
-  }
-
-  .project-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    filter: grayscale(30%) contrast(1.1);
-    transition: filter 0.3s ease;
-  }
-
-  .project-card:hover .project-image img {
-    filter: grayscale(0%) contrast(1);
-  }
-
-  .project-content {
-    padding: 0;
-  }
-
-  .project-title {
-    font-size: var(--font-size-base);
-    margin-bottom: var(--space-1);
-    text-transform: none;
-    letter-spacing: normal;
-  }
-
-  .project-description {
-    color: var(--text-secondary);
-    font-size: var(--font-size-sm);
-    margin-bottom: var(--space-2);
-  }
-
-  @media (max-width: 600px) {
-    .project-card {
-      grid-template-columns: 5rem 1fr;
-    }
-  }
-</style>

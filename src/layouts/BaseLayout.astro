@@ -1,9 +1,9 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import Sidebar from '../components/Sidebar.astro';
-import Scanlines from '../components/Scanlines.astro';
-import '../styles/main.css';
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Sidebar from "../components/Sidebar.astro";
+import Scanlines from "../components/Scanlines.astro";
+import "../styles/main.css";
 
 interface Props {
   title?: string;
@@ -11,60 +11,62 @@ interface Props {
   showSidebar?: boolean;
 }
 
-const { 
-  title = 'PETERBINKS.NET', 
-  description = 'Design Engineer // Chicago, IL',
-  showSidebar = true
-} = Astro.props;
+const { title = "PETERBINKS.NET", description = "Design Engineer // Chicago, IL", showSidebar = true } = Astro.props;
 
 const currentPath = Astro.url.pathname;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content={description} />
-  <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#1a1410" />
-  <title>{title} // PETERBINKS.NET</title>
-  
-  <!-- Prevent flash of wrong theme/accent -->
-  <script is:inline>
-    (function() {
-      const savedTheme = localStorage.getItem('theme');
-      const savedAccent = localStorage.getItem('accent');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      
-      // Light is default; only go dark if explicitly saved or system prefers dark
-      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-      }
-      
-      if (savedAccent) {
-        document.documentElement.setAttribute('data-accent', savedAccent);
-      }
-    })();
-  </script>
-</head>
-<body>
-  <Scanlines />
-  
-  <div class="site-wrapper">
-    <Header currentPath={currentPath} />
-    
-    <main class="site-main">
-      <div class="content-area">
-        <slot />
-      </div>
-      
-      {showSidebar && <Sidebar />}
-    </main>
-    
-    <Footer />
-  </div>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#1a1410" />
+    <title>Peter Binks</title>
+
+    <!-- Google Fonts - Fira Code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Prevent flash of wrong theme/accent -->
+    <script is:inline>
+      (function () {
+        const savedTheme = localStorage.getItem("theme");
+        const savedAccent = localStorage.getItem("accent");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+        // Light is default; only go dark if explicitly saved or system prefers dark
+        if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+
+        if (savedAccent) {
+          document.documentElement.setAttribute("data-accent", savedAccent);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <Header currentPath={currentPath} />
+
+      <main class="site-main">
+        <div class="content-area">
+          <slot />
+        </div>
+
+        {showSidebar && <Sidebar />}
+      </main>
+
+      <Footer />
+    </div>
+  </body>
 </html>

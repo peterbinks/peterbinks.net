@@ -1,0 +1,124 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection, getEntry } from "astro:content";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("work");
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await project.render();
+---
+
+<BaseLayout title={project.data.title}>
+  <article class="work-detail">
+    <header class="work-header">
+      <a href="/work" class="back-link">← ARCHIVE.WORK</a>
+      <h1 class="terminal-prompt">
+        <span class="glitch" data-text={project.data.title}>
+          {project.data.title}
+        </span>
+      </h1>
+      <p class="work-description">{project.data.description}</p>
+      {project.data.tags && project.data.tags.length > 0 && (
+        <div class="project-tags">
+          {project.data.tags.map((tag) => (
+            <span class="project-tag">{tag}</span>
+          ))}
+        </div>
+      )}
+    </header>
+
+    <hr class="section-divider double-line" />
+
+    {project.data.image && (
+      <figure class="work-image">
+        <img src={project.data.image} alt={project.data.title} />
+      </figure>
+    )}
+
+    <div class="work-content">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .work-detail {
+    max-width: 50rem;
+  }
+
+  .work-header {
+    margin-bottom: var(--space-5);
+  }
+
+  .back-link {
+    display: inline-block;
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    margin-bottom: var(--space-4);
+    text-decoration: none;
+  }
+
+  .back-link:hover {
+    color: var(--accent);
+  }
+
+  .work-description {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    margin-top: var(--space-3);
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+  }
+
+  .project-tag {
+    font-size: var(--font-size-xs);
+    padding: var(--space-1) var(--space-2);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+  }
+
+  .work-image {
+    margin: var(--space-6) 0;
+  }
+
+  .work-image img {
+    width: 100%;
+    border: 1px solid var(--border-default);
+  }
+
+  .work-content {
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .work-content :global(p) {
+    margin-bottom: var(--space-4);
+  }
+
+  .work-content :global(h2) {
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-3);
+  }
+
+  .work-content :global(ul),
+  .work-content :global(ol) {
+    margin-bottom: var(--space-4);
+    padding-left: var(--space-5);
+  }
+
+  .work-content :global(li) {
+    margin-bottom: var(--space-2);
+  }
+</style>

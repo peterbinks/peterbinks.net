@@ -1,7 +1,7 @@
 ---
 // System status sidebar with uptime calculator, links, and now reading
 // Birthday: August 7, 1991
-import LastPlayed from './LastPlayed.astro';
+import LastPlayed from "./LastPlayed.astro";
 
 const birthday = new Date(1991, 7, 7); // Month is 0-indexed
 const now = new Date();
@@ -42,8 +42,8 @@ const currentBook = {
 ---
 
 <aside class="sidebar">
-  <section class="sidebar-section">
-    <h3 class="sidebar-title">SYS.STATUS</h3>
+  <!-- <section class="sidebar-section">
+    <h3 class="sidebar-title">Status</h3>
     <div class="status-row">
       <span class="status-label">LOC:</span>
       <span class="status-value">chicago, il</span>
@@ -56,10 +56,10 @@ const currentBook = {
       <span class="status-label">STS:</span>
       <span class="status-value">online</span>
     </div>
-  </section>
+  </section> -->
 
   <section class="sidebar-section">
-    <h3 class="sidebar-title">LINKS.OUT</h3>
+    <h3 class="sidebar-title">Links</h3>
     <ul class="sidebar-list">
       {
         socialLinks.map((link) => (
@@ -76,7 +76,7 @@ const currentBook = {
   <LastPlayed />
 
   <section class="sidebar-section">
-    <h3 class="sidebar-title">NOW.READING</h3>
+    <h3 class="sidebar-title">Now Reading</h3>
     <div class="status-row">
       <span class="status-value">{currentBook.title}</span>
     </div>
