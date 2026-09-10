@@ -23,8 +23,8 @@
   --space-7: 3rem;
   --space-8: 4rem;
   --space-9: 6rem;
-  --sidebar-width: 12rem;
-  --measure: 36rem;
+  --sidebar-width: 11rem;
+  --measure: 32rem;
 }
 
 [data-theme="dark"] {
@@ -175,7 +175,7 @@ blockquote {
 
 /* Shared page shell: a reading column with a narrow sidebar beside it. */
 .site-wrapper {
-  width: min(var(--measure) + var(--space-9) + var(--sidebar-width), calc(100% - 3rem));
+  width: min(var(--measure) + var(--space-8) + var(--sidebar-width), calc(100% - 3rem));
   min-height: 100svh;
   margin: 0 auto;
   padding: var(--space-8) 0 var(--space-7);
@@ -235,7 +235,7 @@ blockquote {
   display: grid;
   grid-template-columns: minmax(0, var(--measure)) var(--sidebar-width);
   justify-content: space-between;
-  column-gap: var(--space-9);
+  column-gap: var(--space-8);
   padding-top: var(--space-9);
 }
 
@@ -411,6 +411,20 @@ blockquote {
 .sidebar-title {
   font-size: var(--font-size-sm);
   margin-bottom: var(--space-3);
+}
+
+.sidebar-blurb {
+  margin: 0;
+  line-height: 1.55;
+}
+
+.sidebar-blurb a {
+  color: var(--text-muted);
+  text-decoration-color: var(--border-default);
+}
+
+.sidebar-blurb a:hover {
+  color: var(--text-primary);
 }
 
 .sidebar-links {
