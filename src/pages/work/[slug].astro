@@ -19,19 +19,9 @@ const { Content } = await project.render();
     <header class="page-header">
       <a href="/work" class="back-link">← All work</a>
       <h1>{project.data.title}</h1>
-      <p class="work-description">{project.data.description}</p>
-      {
-        project.data.tags && project.data.tags.length > 0 && (
-          <div class="project-tags">
-            {project.data.tags.map((tag) => (
-              <span class="project-tag">{tag}</span>
-            ))}
-          </div>
-        )
-      }
+      <p class="page-description">{project.data.description}</p>
+      {project.data.tags && project.data.tags.length > 0 && <p class="meta">{project.data.tags.join(" · ")}</p>}
     </header>
-
-    <hr class="section-divider" />
 
     {
       project.data.image && (
@@ -48,14 +38,8 @@ const { Content } = await project.render();
 </BaseLayout>
 
 <style>
-  .work-description {
-    font-size: var(--font-size-lg);
-    max-width: 38em;
-    margin: var(--space-5) 0;
-  }
-
   .work-image {
-    margin: var(--space-7) 0;
+    margin: var(--space-6) 0;
   }
 
   .work-image img {

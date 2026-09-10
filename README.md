@@ -6,8 +6,8 @@ Peter Binkowski's personal site.
 
 - [Astro](https://astro.build) - Static site generator
 - CSS with shared color, typography, and spacing tokens
-- Newsreader & DM Sans via Google Fonts, with system-font fallbacks
-- Responsive editorial layouts with light and dark themes
+- System font stack (no web fonts); system monospace for metadata
+- Single reading column with light and dark themes
 
 ## Development
 

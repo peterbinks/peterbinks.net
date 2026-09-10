@@ -19,11 +19,9 @@ function formatDate(date: Date | undefined): string {
 
 <BaseLayout title="Writing">
   <header class="page-header">
-    <p class="eyebrow">Thoughts & notes</p>
-    <h1>Writing.</h1>
+    <h1>Writing</h1>
     <p class="page-description">A place to think out loud.</p>
   </header>
-
 
   <section class="posts-list">
     <ul class="content-list">
@@ -31,11 +29,8 @@ function formatDate(date: Date | undefined): string {
         posts.map((post) => (
           <li>
             <a href={`/blog/${post.slug}`} class="content-link">
-              <div>
-                <time class="item-meta" datetime={post.data.date?.toISOString()}>{formatDate(post.data.date)}</time>
-                <h2 class="item-title">{post.data.title}</h2>
-              </div>
-              <span class="item-arrow" aria-hidden="true">↗</span>
+              <h2 class="item-title">{post.data.title}</h2>
+              <time class="item-meta meta" datetime={post.data.date?.toISOString()}>{formatDate(post.data.date)}</time>
             </a>
           </li>
         ))
@@ -45,21 +40,7 @@ function formatDate(date: Date | undefined): string {
 
   {
     posts.length === 0 && (
-      <div class="empty-state">
-        <h2>Nothing published just yet.</h2>
-        <p>In the meantime, take a look at <a href="/work">my work</a> or <a href="/about">say hello</a>.</p>
-      </div>
+      <p>Nothing published just yet. In the meantime, take a look at <a href="/work">my work</a> or <a href="/about">say hello</a>.</p>
     )
   }
 </BaseLayout>
-
-<style>
-  .empty-state {
-    border-top: 1px solid var(--border-default);
-    padding: var(--space-7) 0;
-  }
-
-  .empty-state h2 {
-    margin-bottom: var(--space-4);
-  }
-</style>

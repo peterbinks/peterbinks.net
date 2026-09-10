@@ -5,11 +5,9 @@ import { quotes } from "../data/quotes";
 
 <BaseLayout title="Quotes">
   <header class="page-header">
-    <p class="eyebrow">Words worth keeping</p>
-    <h1>Commonplace.</h1>
+    <h1>Quotes</h1>
     <p class="page-description">A collection of other people’s wisdom.</p>
   </header>
-
 
   <section class="quotes-list">
     {
@@ -24,22 +22,14 @@ import { quotes } from "../data/quotes";
 </BaseLayout>
 
 <style>
-  .quotes-list {
-    max-width: 44rem;
-  }
-
   .quote-block {
-    border-top: 1px solid var(--border-subtle);
-    padding: var(--space-7) 0;
+    margin-bottom: var(--space-6);
   }
 
   .quote-text {
     border: 0;
     padding: 0;
-    margin: 0 0 var(--space-5);
-    font-family: var(--font-sans);
-    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-    line-height: 1.5;
+    margin: 0 0 var(--space-2);
     color: var(--text-primary);
   }
 
