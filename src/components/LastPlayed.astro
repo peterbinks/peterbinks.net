@@ -41,8 +41,14 @@ try {
 ---
 
 {track && (
-  <li>
-    <span class="label">{track.nowPlaying ? 'Listening to' : 'Last played'}</span>{' '}
-    <a href={track.url} target="_blank" rel="noopener noreferrer">{track.name}</a> by {track.artist}
-  </li>
+  <section class="sidebar-section">
+    <h2 class="sidebar-title">{track.nowPlaying ? 'Listening' : 'Last played'}</h2>
+    <a href={track.url} target="_blank" rel="noopener noreferrer" class="media-row">
+      {track.image && <img src={track.image} alt="" class="media-thumb" width="40" height="40" loading="lazy" />}
+      <span class="media-text">
+        <span class="media-title">{track.name}</span>
+        <span class="media-sub">{track.artist}</span>
+      </span>
+    </a>
+  </section>
 )}
