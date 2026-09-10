@@ -1,12 +1,13 @@
 /* Typography, color, and spacing shared by every page. */
 :root {
   color-scheme: light;
-  --bg-base: #fdfdfc;
-  --bg-surface: #f3f3f0;
-  --border-default: #e6e5e0;
-  --text-primary: #1f1e1b;
-  --text-secondary: #5c5b56;
-  --text-muted: #74736c;
+  --bg-base: #faf8f4;
+  --bg-surface: #f1eee7;
+  --border-default: #e4e0d6;
+  --text-primary: #211f1b;
+  --text-secondary: #5b5850;
+  --text-muted: #726e66;
+  --accent: #b83f0c;
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Roboto, "Helvetica Neue", sans-serif;
   --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   --font-size-xs: 0.8125rem;
@@ -29,12 +30,13 @@
 
 [data-theme="dark"] {
   color-scheme: dark;
-  --bg-base: #1b1b19;
-  --bg-surface: #252523;
-  --border-default: #33332f;
-  --text-primary: #ecebe6;
-  --text-secondary: #b3b2ab;
-  --text-muted: #8f8e87;
+  --bg-base: #1c1a17;
+  --bg-surface: #26231f;
+  --border-default: #35312b;
+  --text-primary: #ece8df;
+  --text-secondary: #b5b0a5;
+  --text-muted: #918c81;
+  --accent: #f59a5b;
 }
 
 /* Reset */
@@ -81,9 +83,9 @@ button {
 }
 
 a {
-  color: inherit;
+  color: var(--accent);
   text-decoration: underline;
-  text-decoration-color: var(--text-muted);
+  text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
 }
@@ -93,14 +95,29 @@ a:hover {
 }
 
 :focus-visible {
-  outline: 2px solid var(--text-primary);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: 2px;
 }
 
 ::selection {
   color: var(--bg-base);
-  background: var(--text-primary);
+  background: var(--accent);
+}
+
+/* Labels share a monospace voice; reading text stays in the sans. */
+.label,
+.nav-link,
+.section-title,
+.sidebar-title,
+.site-location,
+.site-footer,
+.section-footer,
+.back-link,
+.meta {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0;
 }
 
 /* Typography: hierarchy comes from weight and color, not size. */
@@ -191,8 +208,18 @@ blockquote {
 }
 
 .site-identity {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--text-primary);
   text-decoration: none;
   flex-shrink: 0;
+}
+
+.site-mark {
+  width: 1.375rem;
+  height: auto;
+  color: var(--accent);
 }
 
 .site-name {
@@ -203,7 +230,6 @@ blockquote {
 .site-location {
   display: block;
   color: var(--text-muted);
-  font-size: var(--font-size-sm);
 }
 
 .nav-list {
@@ -221,13 +247,15 @@ blockquote {
 
 .nav-link {
   color: var(--text-muted);
-  font-size: var(--font-size-sm);
   text-decoration: none;
 }
 
-.nav-link:hover,
-.nav-link.active {
+.nav-link:hover {
   color: var(--text-primary);
+}
+
+.nav-link.active {
+  color: var(--accent);
 }
 
 .site-body {
@@ -263,8 +291,11 @@ blockquote {
 
 .site-footer {
   margin-top: var(--space-9);
-  font-size: var(--font-size-sm);
   color: var(--text-muted);
+}
+
+.site-footer a {
+  color: inherit;
 }
 
 .footer-inner {
@@ -284,19 +315,21 @@ blockquote {
 }
 
 .section-title {
-  font-size: var(--font-size-base);
-  letter-spacing: -0.01em;
+  font-weight: 500;
   margin-bottom: var(--space-5);
 }
 
 .section-footer {
   margin-top: var(--space-5);
-  font-size: var(--font-size-sm);
-  color: var(--text-muted);
 }
 
 .section-footer a {
+  color: var(--text-muted);
   text-decoration-color: var(--border-default);
+}
+
+.section-footer a:hover {
+  color: var(--accent);
 }
 
 /* Title and one-line description pairs. */
@@ -316,6 +349,7 @@ blockquote {
 
 .content-link {
   display: block;
+  color: inherit;
   text-decoration: none;
 }
 
@@ -382,14 +416,13 @@ blockquote {
 
 .back-link {
   display: inline-block;
-  font-size: var(--font-size-sm);
   color: var(--text-muted);
   margin-bottom: var(--space-5);
   text-decoration: none;
 }
 
 .back-link:hover {
-  color: var(--text-primary);
+  color: var(--accent);
 }
 
 /* Sidebar: links and what is currently playing and being read. */
@@ -409,22 +442,13 @@ blockquote {
 }
 
 .sidebar-title {
-  font-size: var(--font-size-sm);
+  color: var(--text-muted);
   margin-bottom: var(--space-3);
 }
 
 .sidebar-blurb {
   margin: 0;
   line-height: 1.55;
-}
-
-.sidebar-blurb a {
-  color: var(--text-muted);
-  text-decoration-color: var(--border-default);
-}
-
-.sidebar-blurb a:hover {
-  color: var(--text-primary);
 }
 
 .sidebar-links {
@@ -446,13 +470,14 @@ blockquote {
 }
 
 .sidebar-links a:hover {
-  color: var(--text-primary);
+  color: var(--accent);
 }
 
 .media-row {
   display: flex;
   align-items: center;
   gap: var(--space-3);
+  color: inherit;
   text-decoration: none;
 }
 
