@@ -1,16 +1,16 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import Sidebar from "../components/Sidebar.astro";
+import Elsewhere from "../components/Elsewhere.astro";
 import "../styles/main.css";
 
 interface Props {
   title?: string;
   description?: string;
-  showSidebar?: boolean;
+  showElsewhere?: boolean;
 }
 
-const { title = "Home", description = "Peter Binkowski is a design engineer in Chicago, building systems and tools that bring design and engineering together.", showSidebar = true } = Astro.props;
+const { title = "Home", description = "Peter Binkowski is a design engineer in Chicago, building systems and tools that bring design and engineering together.", showElsewhere = true } = Astro.props;
 
 const currentPath = Astro.url.pathname;
 ---
@@ -22,16 +22,8 @@ const currentPath = Astro.url.pathname;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#f8f7f4" />
+    <meta name="theme-color" content="#fdfdfc" />
     <title>{title === "Home" ? "Peter Binkowski — Design Engineer" : `${title} — Peter Binkowski`}</title>
-
-    <!-- Instrument Sans for headings, text, and navigation. -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
 
     <!-- Apply the saved or system theme before the page is painted. -->
     <script is:inline>
@@ -59,7 +51,7 @@ const currentPath = Astro.url.pathname;
           <slot />
         </div>
       </main>
-      {showSidebar && <Sidebar />}
+      {showElsewhere && <Elsewhere />}
 
       <Footer />
     </div>

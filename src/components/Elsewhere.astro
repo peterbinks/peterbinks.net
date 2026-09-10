@@ -1,0 +1,36 @@
+---
+import LastPlayed from "./LastPlayed.astro";
+import { currentBook } from "../data/books";
+
+const socialLinks = [
+  { href: "https://twitter.com/peterbinks", label: "Twitter" },
+  { href: "https://bsky.app/profile/peterbinks.bsky.social", label: "Bluesky" },
+  { href: "https://social.lol/@peterbinks", label: "Mastodon" },
+  { href: "https://github.com/peterbinks", label: "GitHub" },
+  { href: "https://codepen.io/peterbinks", label: "CodePen" },
+  { href: "https://linkedin.com/in/peterbinkowski", label: "LinkedIn" },
+  { href: "mailto:peter@peterbinks.net", label: "Email" },
+];
+---
+
+<aside class="elsewhere" aria-label="Elsewhere">
+  <h2 class="section-title">Elsewhere</h2>
+  <ul class="elsewhere-list">
+    {
+      socialLinks.map((link) => (
+        <li>
+          <a href={link.href} target="_blank" rel="noopener noreferrer">
+            {link.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <ul class="now-list">
+    <LastPlayed />
+    <li>
+      <span class="label">Reading</span>
+      <a href="/reading">{currentBook.title}</a> by {currentBook.author}
+    </li>
+  </ul>
+</aside>

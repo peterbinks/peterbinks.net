@@ -30,75 +30,54 @@ function formatDate(date: Date | undefined): string {
 ---
 
 <BaseLayout title="Home">
-  <section class="hero">
-    <div class="intro">
-      <p class="eyebrow">Design, code, and the things in between</p>
-      <h1 class="hero-title">Hey there, I’m <span>Peter.</span></h1>
-      <p class="hero-subtitle">
-        I’m a design engineer by trade, and leisure enthusiast by passion.
-        I help bridge designers and engineers by speaking their language,
-        and building systems and tools that both can use.
-      </p>
-      <a href="/about" class="text-link">A little more about me <span aria-hidden="true">↗</span></a>
-    </div>
-    <img class="hero-portrait" src="/images/avatar.jpg" alt="Peter enjoying a cup of coffee" width="160" height="192" />
+  <section class="section">
+    <h1>Hey there, I’m Peter.</h1>
+    <p>
+      I’m a design engineer by trade, and leisure enthusiast by passion.
+      I help bridge designers and engineers by speaking their language,
+      and building systems and tools that both can use.
+    </p>
+    <p>
+      Off screen I’m usually reading a <a href="/reading">good book</a>, making music on my drum kit,
+      or spending time with my wife. Partial to well-brewed coffee, rainy days,
+      and the Oxford comma. <a href="/about">More about me</a>.
+    </p>
   </section>
 
-  <section class="home-section" aria-labelledby="selected-work">
-    <div class="section-label">
-      <h2 id="selected-work" class="section-title">Selected work</h2>
-      <a href="/work" class="text-link">All projects <span aria-hidden="true">↗</span></a>
-    </div>
+  <section class="section" aria-labelledby="selected-work">
+    <h2 id="selected-work" class="section-title">Work</h2>
     <ul class="content-list">
       {
         projects.map((project) => (
           <li>
             <a href={`/work/${project.slug}`} class="content-link">
-              <div>
-                <h3 class="item-title">{project.data.title}</h3>
-                <p class="item-description">{project.data.description}</p>
-                {project.data.tags && <span class="item-meta">{project.data.tags.join(" · ")}</span>}
-              </div>
-              <span class="item-arrow" aria-hidden="true">↗</span>
+              <h3 class="item-title">{project.data.title}</h3>
+              <p class="item-description">{project.data.description}</p>
+              {project.data.tags && <span class="item-meta meta">{project.data.tags.join(" · ")}</span>}
             </a>
           </li>
         ))
       }
     </ul>
+    <p class="section-footer"><a href="/work">All work</a></p>
   </section>
 
-  <section class="home-section" aria-labelledby="latest-writing">
-    <div class="section-label">
-      <h2 id="latest-writing" class="section-title">Writing</h2>
-      <a href="/blog" class="text-link">All writing <span aria-hidden="true">↗</span></a>
-    </div>
+  <section class="section" aria-labelledby="latest-writing">
+    <h2 id="latest-writing" class="section-title">Writing</h2>
     {posts.length > 0 ? (
       <ul class="content-list">
         {posts.map((post) => (
           <li>
             <a href={`/blog/${post.slug}`} class="content-link">
-              <div>
-                <time class="item-meta" datetime={post.data.date?.toISOString()}>{formatDate(post.data.date)}</time>
-                <h3 class="item-title">{post.data.title}</h3>
-              </div>
-              <span class="item-arrow" aria-hidden="true">↗</span>
+              <h3 class="item-title">{post.data.title}</h3>
+              <time class="item-meta meta" datetime={post.data.date?.toISOString()}>{formatDate(post.data.date)}</time>
             </a>
           </li>
         ))}
       </ul>
     ) : (
-      <p class="quiet-note">A place for thoughts and notes. No published posts just yet.</p>
+      <p>A place for thoughts and notes. Nothing published just yet.</p>
     )}
-  </section>
-
-  <section class="home-section" aria-labelledby="off-screen">
-    <div class="section-label">
-      <h2 id="off-screen" class="section-title">Off screen</h2>
-    </div>
-    <p class="personal-note">
-      Usually reading a <a href="/reading">good book</a>, making music on my drum kit,
-      or spending time with my wife. Partial to well-brewed coffee, rainy days,
-      and the Oxford comma.
-    </p>
+    <p class="section-footer"><a href="/blog">All writing</a></p>
   </section>
 </BaseLayout>

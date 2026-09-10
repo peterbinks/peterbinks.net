@@ -5,11 +5,9 @@ import { books } from "../data/books";
 
 <BaseLayout title="Reading">
   <header class="page-header">
-    <p class="eyebrow">On the bookshelf</p>
-    <h1>Reading.</h1>
+    <h1>Reading</h1>
     <p class="page-description">Good company, one book at a time.</p>
   </header>
-
 
   <section class="books-list">
     {
@@ -18,7 +16,7 @@ import { books } from "../data/books";
           <div class="book-content">
             {book.image && <img src={book.image} alt={book.title} class="book-cover" />}
             <div class="book-info">
-              <p class="book-status eyebrow">{book.status.toLowerCase()}</p>
+              <p class="book-status meta">{book.status.toLowerCase()}</p>
               <h2 class="book-title">{book.title}</h2>
               <div class="book-author">by {book.author}</div>
               <p class="book-description">{book.description}</p>
@@ -32,16 +30,14 @@ import { books } from "../data/books";
 
 <style>
   .book-entry {
-    border-top: 1px solid var(--border-subtle);
-    padding: var(--space-7) 0;
+    margin-bottom: var(--space-7);
   }
 
   .book-content {
     display: grid;
-    grid-template-columns: 8rem minmax(0, 1fr);
+    grid-template-columns: 6rem minmax(0, 1fr);
     align-items: start;
-    gap: var(--space-7);
-    max-width: 48rem;
+    gap: var(--space-5);
   }
 
   .book-cover {
@@ -50,31 +46,27 @@ import { books } from "../data/books";
   }
 
   .book-status {
-    margin-bottom: var(--space-3);
+    margin-bottom: var(--space-2);
   }
 
   .book-title {
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--space-1);
   }
 
   .book-author {
     color: var(--text-muted);
     font-size: var(--font-size-sm);
-    margin-bottom: var(--space-5);
-  }
-
-  .book-description {
-    max-width: 36em;
+    margin-bottom: var(--space-4);
   }
 
   @media (max-width: 480px) {
     .book-content {
       grid-template-columns: 1fr;
-      gap: var(--space-5);
+      gap: var(--space-4);
     }
 
     .book-cover {
-      width: 6rem;
+      width: 5rem;
     }
   }
 </style>

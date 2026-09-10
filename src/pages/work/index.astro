@@ -16,32 +16,21 @@ const sortedProjects = projects.sort((a, b) => {
 
 <BaseLayout title="Work">
   <header class="page-header">
-    <p class="eyebrow">Design & engineering</p>
-    <h1>Selected work.</h1>
+    <h1>Work</h1>
     <p class="page-description">Systems, websites, and collaborations.</p>
   </header>
 
-
-  <section class="projects-grid">
+  <ul class="content-list">
     {
       sortedProjects.map((project) => (
-        <a href={`/work/${project.slug}`} class="project-card-link">
-          <article class="project-card">
-            <div class="project-content">
-              <h2 class="project-title">
-                {project.data.title}
-              </h2>
-              <p class="project-description">{project.data.description}</p>
-              <div class="project-tags">
-                {project.data.tags?.map((tag) => (
-                  <span class="project-tag">{tag}</span>
-                ))}
-              </div>
-            </div>
-            <span class="item-arrow" aria-hidden="true">↗</span>
-          </article>
-        </a>
+        <li>
+          <a href={`/work/${project.slug}`} class="content-link">
+            <h2 class="item-title">{project.data.title}</h2>
+            <p class="item-description">{project.data.description}</p>
+            {project.data.tags && <span class="item-meta meta">{project.data.tags.join(" · ")}</span>}
+          </a>
+        </li>
       ))
     }
-  </section>
+  </ul>
 </BaseLayout>

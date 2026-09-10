@@ -27,7 +27,7 @@ function formatDate(date: Date | undefined): string {
     <header class="page-header">
       <a href="/blog" class="back-link">← All writing</a>
       <h1>{post.data.title}</h1>
-      <time class="item-meta" datetime={post.data.date?.toISOString()}>{formatDate(post.data.date)}</time>
+      <time class="meta" datetime={post.data.date?.toISOString()}>{formatDate(post.data.date)}</time>
     </header>
 
     <div class="post-content prose">

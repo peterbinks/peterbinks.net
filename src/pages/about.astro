@@ -10,8 +10,7 @@ const career = [
 
 <BaseLayout title="About">
   <header class="page-header">
-    <p class="eyebrow">A little introduction</p>
-    <h1>About me.</h1>
+    <h1>About</h1>
   </header>
   <section class="about-content prose">
     <section class="about-section">
@@ -56,7 +55,7 @@ const career = [
         over the years.
       </p>
       <p>
-        Built with <a href="https://astro.build">Astro</a>, set in Instrument Sans.
+        Built with <a href="https://astro.build">Astro</a>, set in whatever typeface your system prefers.
         A little space for my work, writing, and things worth keeping.
       </p>
     </section>
@@ -75,12 +74,10 @@ const career = [
 <style>
   .about-section + .about-section {
     margin-top: var(--space-7);
-    padding-top: var(--space-7);
-    border-top: 1px solid var(--border-subtle);
   }
 
   .about-section h2 {
-    margin-top: 0;
+    margin: 0 0 var(--space-4);
   }
 
   .interest-list,
@@ -101,8 +98,7 @@ const career = [
     flex-wrap: wrap;
     justify-content: space-between;
     gap: var(--space-2) var(--space-5);
-    padding: var(--space-3) 0;
-    margin: 0;
+    margin: 0 0 var(--space-2);
   }
 
   .career-list .title {

@@ -41,64 +41,8 @@ try {
 ---
 
 {track && (
-  <div class="last-played">
-    <h2 class="sidebar-title">
-      {track.nowPlaying ? 'Now playing' : 'Last played'}
-    </h2>
-    <a href={track.url} target="_blank" rel="noopener noreferrer" class="track-link">
-      {track.image && (
-        <img src={track.image} alt={track.album} class="track-image" width="48" height="48" loading="lazy" />
-      )}
-      <div class="track-info">
-        <div class="track-name">{track.name}</div>
-        <div class="track-artist">{track.artist}</div>
-      </div>
-    </a>
-  </div>
+  <li>
+    <span class="label">{track.nowPlaying ? 'Listening to' : 'Last played'}</span>{' '}
+    <a href={track.url} target="_blank" rel="noopener noreferrer">{track.name}</a> by {track.artist}
+  </li>
 )}
-
-<style>
-  .last-played {
-    margin-bottom: var(--space-5);
-  }
-
-  .track-link {
-    display: flex;
-    gap: var(--space-3);
-    align-items: center;
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: color 0.15s ease;
-  }
-
-  .track-link:hover {
-    color: var(--accent);
-  }
-
-  .track-link:hover .track-image {
-    border-color: var(--accent);
-  }
-
-  .track-image {
-    width: 48px;
-    height: 48px;
-    border: 1px solid var(--border-default);
-    flex-shrink: 0;
-  }
-
-  .track-info {
-    min-width: 0;
-  }
-
-  .track-name {
-    color: var(--text-primary);
-    font-size: var(--font-size-sm);
-    overflow-wrap: anywhere;
-  }
-
-  .track-artist {
-    color: var(--text-muted);
-    font-size: var(--font-size-xs);
-    overflow-wrap: anywhere;
-  }
-</style>

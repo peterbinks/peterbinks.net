@@ -8,8 +8,7 @@
   aria-label="Toggle dark mode"
   aria-pressed="false"
 >
-  Appearance: <span class="theme-toggle-dark">Dark</span>
-  <span class="theme-toggle-light">Light</span>
+  <span class="theme-toggle-dark">Dark</span><span class="theme-toggle-light">Light</span> mode
 </button>
 
 <style is:global>
@@ -18,12 +17,11 @@
     border: none;
     color: var(--text-muted);
     font: inherit;
-    padding: var(--space-2) 0;
-    transition: all 0.15s ease;
+    padding: 0;
   }
 
   .theme-toggle:hover {
-    color: var(--accent);
+    color: var(--text-primary);
   }
 
   .theme-toggle-light {
