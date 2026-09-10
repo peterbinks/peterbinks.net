@@ -30,18 +30,23 @@ function formatDate(date: Date | undefined): string {
 ---
 
 <BaseLayout title="Home">
-  <section class="section">
-    <h1>Hey there, I’m Peter.</h1>
-    <p>
-      I’m a design engineer by trade, and leisure enthusiast by passion.
-      I help bridge designers and engineers by speaking their language,
-      and building systems and tools that both can use.
-    </p>
-    <p>
-      Off screen I’m usually reading a <a href="/reading">good book</a>, making music on my drum kit,
-      or spending time with my wife. Partial to well-brewed coffee, rainy days,
-      and the Oxford comma. <a href="/about">More about me</a>.
-    </p>
+  <section class="section" aria-labelledby="latest-writing">
+    <h1 id="latest-writing" class="section-title">Writing</h1>
+    {posts.length > 0 ? (
+      <ul class="content-list">
+        {posts.map((post) => (
+          <li>
+            <a href={`/blog/${post.slug}`} class="content-link">
+              <h2 class="item-title">{post.data.title}</h2>
+              <time class="item-meta meta" datetime={post.data.date?.toISOString()}>{formatDate(post.data.date)}</time>
+            </a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p>A place for thoughts and notes. Nothing published just yet.</p>
+    )}
+    <p class="section-footer"><a href="/blog">All writing</a></p>
   </section>
 
   <section class="section" aria-labelledby="selected-work">
@@ -60,24 +65,5 @@ function formatDate(date: Date | undefined): string {
       }
     </ul>
     <p class="section-footer"><a href="/work">All work</a></p>
-  </section>
-
-  <section class="section" aria-labelledby="latest-writing">
-    <h2 id="latest-writing" class="section-title">Writing</h2>
-    {posts.length > 0 ? (
-      <ul class="content-list">
-        {posts.map((post) => (
-          <li>
-            <a href={`/blog/${post.slug}`} class="content-link">
-              <h3 class="item-title">{post.data.title}</h3>
-              <time class="item-meta meta" datetime={post.data.date?.toISOString()}>{formatDate(post.data.date)}</time>
-            </a>
-          </li>
-        ))}
-      </ul>
-    ) : (
-      <p>A place for thoughts and notes. Nothing published just yet.</p>
-    )}
-    <p class="section-footer"><a href="/blog">All writing</a></p>
   </section>
 </BaseLayout>
