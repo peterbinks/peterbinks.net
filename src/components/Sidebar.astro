@@ -1,0 +1,44 @@
+---
+import LastPlayed from "./LastPlayed.astro";
+import { currentBook } from "../data/books";
+
+const socialLinks = [
+  { href: "https://twitter.com/peterbinks", label: "Twitter" },
+  { href: "https://bsky.app/profile/peterbinks.bsky.social", label: "Bluesky" },
+  { href: "https://social.lol/@peterbinks", label: "Mastodon" },
+  { href: "https://github.com/peterbinks", label: "GitHub" },
+  { href: "https://codepen.io/peterbinks", label: "CodePen" },
+  { href: "https://linkedin.com/in/peterbinkowski", label: "LinkedIn" },
+  { href: "mailto:peter@peterbinks.net", label: "Email" },
+];
+---
+
+<aside class="sidebar" aria-label="Links and current interests">
+  <section class="sidebar-section">
+    <h2 class="sidebar-title">Elsewhere</h2>
+    <ul class="sidebar-links">
+      {
+        socialLinks.map((link) => (
+          <li>
+            <a href={link.href} target="_blank" rel="noopener noreferrer">
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <LastPlayed />
+
+  <section class="sidebar-section">
+    <h2 class="sidebar-title">Reading</h2>
+    <a href="/reading" class="media-row">
+      <img src={currentBook.thumbnail} alt="" class="media-thumb book" width="40" height="60" loading="lazy" />
+      <span class="media-text">
+        <span class="media-title">{currentBook.title}</span>
+        <span class="media-sub">{currentBook.author}</span>
+      </span>
+    </a>
+  </section>
+</aside>
