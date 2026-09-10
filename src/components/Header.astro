@@ -12,8 +12,13 @@ const { currentPath = "" } = Astro.props;
 <header class="site-header">
   <div class="header-inner">
     <a href="/" class="site-identity" aria-label="Peter Binkowski, home">
-      <span class="site-name">Peter Binkowski</span>
-      <span class="site-location">Design engineer, Chicago</span>
+      <svg class="site-mark" viewBox="0 0 165 195" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="12" stroke-linejoin="round">
+        <path d="M82 6 L157 50 L82 94 L7 50 Z M82 6 V94 M7 145 L82 189 V101 Z" />
+      </svg>
+      <span>
+        <span class="site-name">Peter Binkowski</span>
+        <span class="site-location">Design engineer, Chicago</span>
+      </span>
     </a>
     <Nav currentPath={currentPath} />
   </div>

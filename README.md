@@ -6,8 +6,9 @@ Peter Binkowski's personal site.
 
 - [Astro](https://astro.build) - Static site generator
 - CSS with shared color, typography, and spacing tokens
-- System font stack (no web fonts); system monospace for metadata
-- Reading column with a sticky sidebar for links, music, and reading; light and dark themes
+- System font stack (no web fonts): sans for reading text, monospace for labels and metadata
+- Warm paper palette with a single burnt-orange accent; light and dark themes
+- Reading column with a sticky sidebar for a short bio, links, music, and reading
 
 ## Development
 
