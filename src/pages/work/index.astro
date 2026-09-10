@@ -14,27 +14,22 @@ const sortedProjects = projects.sort((a, b) => {
 });
 ---
 
-<BaseLayout title="ARCHIVE.WORK">
+<BaseLayout title="Work">
   <header class="page-header">
-    <h1 class="terminal-prompt">ARCHIVE.WORK</h1>
-    <p class="page-description">Selected projects and collaborations.</p>
+    <p class="eyebrow">Design & engineering</p>
+    <h1>Selected work.</h1>
+    <p class="page-description">Systems, websites, and collaborations.</p>
   </header>
 
-  <hr class="section-divider double-line" />
 
   <section class="projects-grid">
     {
       sortedProjects.map((project) => (
         <a href={`/work/${project.slug}`} class="project-card-link">
           <article class="project-card">
-            {project.data.image && (
-              <div class="project-image">
-                <img src={project.data.image} alt={project.data.title} loading="lazy" />
-              </div>
-            )}
             <div class="project-content">
               <h2 class="project-title">
-                <span data-text={project.data.title}>{project.data.title}</span>
+                {project.data.title}
               </h2>
               <p class="project-description">{project.data.description}</p>
               <div class="project-tags">
@@ -43,6 +38,7 @@ const sortedProjects = projects.sort((a, b) => {
                 ))}
               </div>
             </div>
+            <span class="item-arrow" aria-hidden="true">↗</span>
           </article>
         </a>
       ))

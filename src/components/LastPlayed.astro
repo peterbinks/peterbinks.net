@@ -42,12 +42,12 @@ try {
 
 {track && (
   <div class="last-played">
-    <div class="sidebar-title">
-      {track.nowPlaying ? 'NOW PLAYING' : 'LAST PLAYED'}
-    </div>
+    <h2 class="sidebar-title">
+      {track.nowPlaying ? 'Now playing' : 'Last played'}
+    </h2>
     <a href={track.url} target="_blank" rel="noopener noreferrer" class="track-link">
       {track.image && (
-        <img src={track.image} alt={track.album} class="track-image" />
+        <img src={track.image} alt={track.album} class="track-image" width="48" height="48" loading="lazy" />
       )}
       <div class="track-info">
         <div class="track-name">{track.name}</div>
@@ -93,16 +93,12 @@ try {
   .track-name {
     color: var(--text-primary);
     font-size: var(--font-size-sm);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    overflow-wrap: anywhere;
   }
 
   .track-artist {
     color: var(--text-muted);
     font-size: var(--font-size-xs);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    overflow-wrap: anywhere;
   }
 </style>

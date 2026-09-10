@@ -3,41 +3,48 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { quotes } from "../data/quotes";
 ---
 
-<BaseLayout title="TRANSMISSION.LOG">
+<BaseLayout title="Quotes">
   <header class="page-header">
-    <h1 class="terminal-prompt">TRANSMISSION.LOG</h1>
-    <p class="page-description">Intercepted signals and wisdom from across the network.</p>
+    <p class="eyebrow">Words worth keeping</p>
+    <h1>Commonplace.</h1>
+    <p class="page-description">A collection of other people’s wisdom.</p>
   </header>
 
-  <hr class="section-divider double-line" />
 
   <section class="quotes-list">
     {
-      quotes.map((item, index) => (
-        <div class="quote-block">
-          <div class="quote-text">{item.quote}</div>
-          <div class="quote-author">{item.author.toUpperCase()}</div>
-        </div>
+      quotes.map((item) => (
+        <figure class="quote-block">
+          <blockquote class="quote-text">{item.quote}</blockquote>
+          <figcaption class="quote-author">{item.author}</figcaption>
+        </figure>
       ))
     }
   </section>
 </BaseLayout>
 
 <style>
-  .page-header {
-    margin-bottom: var(--space-5);
+  .quotes-list {
+    max-width: 44rem;
   }
 
-  .page-header h1 {
-    margin-bottom: var(--space-2);
+  .quote-block {
+    border-top: 1px solid var(--border-subtle);
+    padding: var(--space-7) 0;
   }
 
-  .page-description {
+  .quote-text {
+    border: 0;
+    padding: 0;
+    margin: 0 0 var(--space-5);
+    font-family: var(--font-sans);
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    line-height: 1.5;
+    color: var(--text-primary);
+  }
+
+  .quote-author {
     color: var(--text-muted);
     font-size: var(--font-size-sm);
-  }
-
-  .quotes-list {
-    margin-top: var(--space-5);
   }
 </style>

@@ -3,86 +3,78 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { books } from "../data/books";
 ---
 
-<BaseLayout title="LIBRARY.DAT">
+<BaseLayout title="Reading">
   <header class="page-header">
-    <h1 class="terminal-prompt">LIBRARY.DAT</h1>
-    <p class="page-description">Books currently loaded into memory.</p>
+    <p class="eyebrow">On the bookshelf</p>
+    <h1>Reading.</h1>
+    <p class="page-description">Good company, one book at a time.</p>
   </header>
 
-  <hr class="section-divider double-line" />
 
   <section class="books-list">
     {
       books.map((book) => (
-        <div class="book-entry terminal-box" data-title={book.status}>
+        <article class="book-entry">
           <div class="book-content">
             {book.image && <img src={book.image} alt={book.title} class="book-cover" />}
             <div class="book-info">
+              <p class="book-status eyebrow">{book.status.toLowerCase()}</p>
               <h2 class="book-title">{book.title}</h2>
               <div class="book-author">by {book.author}</div>
               <p class="book-description">{book.description}</p>
             </div>
           </div>
-        </div>
+        </article>
       ))
     }
   </section>
 </BaseLayout>
 
 <style>
-  .page-header {
-    margin-bottom: var(--space-5);
-  }
-
-  .page-header h1 {
-    margin-bottom: var(--space-2);
-  }
-
-  .page-description {
-    color: var(--text-muted);
-    font-size: var(--font-size-sm);
-  }
-
-  .books-list {
-    margin-top: var(--space-5);
-  }
-
   .book-entry {
-    margin-bottom: var(--space-5);
+    border-top: 1px solid var(--border-subtle);
+    padding: var(--space-7) 0;
   }
 
   .book-content {
-    display: flex;
-    gap: var(--space-4);
+    display: grid;
+    grid-template-columns: 8rem minmax(0, 1fr);
+    align-items: start;
+    gap: var(--space-7);
+    max-width: 48rem;
   }
 
   .book-cover {
-    width: 120px;
+    width: 100%;
     height: auto;
-    flex-shrink: 0;
-    border: 1px solid var(--border-default);
   }
 
-  .book-info {
-    flex: 1;
+  .book-status {
+    margin-bottom: var(--space-3);
   }
 
   .book-title {
-    color: var(--text-primary);
-    font-size: var(--font-size-xl);
     margin-bottom: var(--space-2);
-    text-transform: none;
-    letter-spacing: normal;
   }
 
   .book-author {
     color: var(--text-muted);
     font-size: var(--font-size-sm);
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--space-5);
   }
 
   .book-description {
-    color: var(--text-secondary);
-    line-height: 1.7;
+    max-width: 36em;
+  }
+
+  @media (max-width: 480px) {
+    .book-content {
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
+    }
+
+    .book-cover {
+      width: 6rem;
+    }
   }
 </style>

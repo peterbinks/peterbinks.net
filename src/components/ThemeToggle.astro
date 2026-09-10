@@ -5,28 +5,24 @@
 <button 
   class="theme-toggle" 
   id="theme-toggle" 
-  aria-label="Toggle theme"
-  title="Toggle theme"
+  aria-label="Toggle dark mode"
+  aria-pressed="false"
 >
-  <span class="theme-toggle-dark">[DARK]</span>
-  <span class="theme-toggle-light">[LIGHT]</span>
+  Appearance: <span class="theme-toggle-dark">Dark</span>
+  <span class="theme-toggle-light">Light</span>
 </button>
 
 <style is:global>
   .theme-toggle {
     background: none;
-    border: 1px solid var(--border-default);
+    border: none;
     color: var(--text-muted);
-    font-family: var(--font-mono);
-    font-size: var(--font-size-xs);
-    font-weight: bold;
-    padding: var(--space-1) var(--space-2);
-    cursor: pointer;
+    font: inherit;
+    padding: var(--space-2) 0;
     transition: all 0.15s ease;
   }
 
   .theme-toggle:hover {
-    border-color: var(--accent);
     color: var(--accent);
   }
 
@@ -58,12 +54,14 @@
     } else {
       html.setAttribute('data-theme', 'light');
     }
+    toggle?.setAttribute('aria-pressed', String(html.getAttribute('data-theme') === 'dark'));
     
     // Toggle handler
     toggle?.addEventListener('click', () => {
       const currentTheme = html.getAttribute('data-theme');
       const newTheme = currentTheme === 'light' ? 'dark' : 'light';
       html.setAttribute('data-theme', newTheme);
+      toggle?.setAttribute('aria-pressed', String(newTheme === 'dark'));
       localStorage.setItem('theme', newTheme);
     });
   }

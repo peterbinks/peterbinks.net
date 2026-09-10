@@ -24,94 +24,81 @@ const projects = (await getCollection("work"))
 
 // Format date helper
 function formatDate(date: Date | undefined): string {
-  if (!date) return "----.--.--";
-  return date.toISOString().split("T")[0].replace(/-/g, ".");
+  if (!date) return "";
+  return date.toLocaleDateString("en-US", { month: "short", year: "numeric", timeZone: "UTC" });
 }
 ---
 
-<BaseLayout title="HOME">
+<BaseLayout title="Home">
   <section class="hero">
     <div class="intro">
-      <h2 class="hero-title">Hey there, I'm Peter.</h2>
-      <p class="hero-subtitle terminal-prompt">
-        I'm a Design Engineer by trade, and leisure enthusiast by passion. I help bridge designers and engineers by
-        speaking their language, and building systems and tools that both can use.
+      <p class="eyebrow">Design, code, and the things in between</p>
+      <h1 class="hero-title">Hey there, I’m <span>Peter.</span></h1>
+      <p class="hero-subtitle">
+        I’m a design engineer by trade, and leisure enthusiast by passion.
+        I help bridge designers and engineers by speaking their language,
+        and building systems and tools that both can use.
       </p>
+      <a href="/about" class="text-link">A little more about me <span aria-hidden="true">↗</span></a>
     </div>
+    <img class="hero-portrait" src="/images/avatar.jpg" alt="Peter enjoying a cup of coffee" width="160" height="192" />
   </section>
 
-  <hr class="section-divider" />
-
-  <section class="latest-posts">
-    <h3 class="section-title">Latest Writing</h3>
-    <ul class="list-dotted">
-      {
-        posts.map((post) => (
-          <li>
-            <a href={`/blog/${post.slug}`}>
-              <span class="date">[{formatDate(post.data.date)}]</span>
-              <span class="title">{post.data.title}</span>
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-    <a href="/blog" class="link-arrow">view all</a>
-  </section>
-
-  <hr class="section-divider" />
-
-  <section class="latest-work">
-    <h3 class="section-title">Recent Work</h3>
-    <ul class="list-dotted">
+  <section class="home-section" aria-labelledby="selected-work">
+    <div class="section-label">
+      <h2 id="selected-work" class="section-title">Selected work</h2>
+      <a href="/work" class="text-link">All projects <span aria-hidden="true">↗</span></a>
+    </div>
+    <ul class="content-list">
       {
         projects.map((project) => (
           <li>
-            <a href={`/work/${project.slug}`}>
-              <span class="title">{project.data.title}</span>
-              <span class="description">{project.data.description}</span>
+            <a href={`/work/${project.slug}`} class="content-link">
+              <div>
+                <h3 class="item-title">{project.data.title}</h3>
+                <p class="item-description">{project.data.description}</p>
+                {project.data.tags && <span class="item-meta">{project.data.tags.join(" · ")}</span>}
+              </div>
+              <span class="item-arrow" aria-hidden="true">↗</span>
             </a>
           </li>
         ))
       }
     </ul>
-    <a href="/work" class="link-arrow">view all</a>
+  </section>
+
+  <section class="home-section" aria-labelledby="latest-writing">
+    <div class="section-label">
+      <h2 id="latest-writing" class="section-title">Writing</h2>
+      <a href="/blog" class="text-link">All writing <span aria-hidden="true">↗</span></a>
+    </div>
+    {posts.length > 0 ? (
+      <ul class="content-list">
+        {posts.map((post) => (
+          <li>
+            <a href={`/blog/${post.slug}`} class="content-link">
+              <div>
+                <time class="item-meta" datetime={post.data.date?.toISOString()}>{formatDate(post.data.date)}</time>
+                <h3 class="item-title">{post.data.title}</h3>
+              </div>
+              <span class="item-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="quiet-note">A place for thoughts and notes. No published posts just yet.</p>
+    )}
+  </section>
+
+  <section class="home-section" aria-labelledby="off-screen">
+    <div class="section-label">
+      <h2 id="off-screen" class="section-title">Off screen</h2>
+    </div>
+    <p class="personal-note">
+      Usually reading a <a href="/reading">good book</a>, making music on my drum kit,
+      or spending time with my wife. Partial to well-brewed coffee, rainy days,
+      and the Oxford comma.
+    </p>
   </section>
 </BaseLayout>
-
-<style>
-  .hero {
-    margin-bottom: var(--space-6);
-  }
-
-  .hero-title {
-    font-size: var(--font-size-2xl);
-    color: var(--accent);
-    margin-bottom: var(--space-3);
-  }
-
-  .hero-subtitle {
-    font-size: var(--font-size-lg);
-    color: var(--text-secondary);
-  }
-
-  .latest-posts,
-  .latest-work {
-    margin-bottom: var(--space-5);
-  }
-
-  .link-arrow {
-    display: inline-block;
-    margin-top: var(--space-3);
-    font-size: var(--font-size-sm);
-  }
-
-  .title {
-    display: flex;
-  }
-
-  .description {
-    display: flex;
-    font-size: var(--font-size-xs);
-  }
-</style>

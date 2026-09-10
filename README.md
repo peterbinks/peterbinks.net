@@ -5,8 +5,9 @@ Peter Binkowski's personal site.
 ## Tech Stack
 
 - [Astro](https://astro.build) - Static site generator
-- SCSS for styling
-- [Fira](https://typekit.com/fonts/fira-sans) & [Effra](https://typekit.com/fonts/effra) typefaces via Adobe Fonts
+- CSS with shared color, typography, and spacing tokens
+- Newsreader & DM Sans via Google Fonts, with system-font fallbacks
+- Responsive editorial layouts with light and dark themes
 
 ## Development
 
@@ -28,8 +29,10 @@ npm run preview
 
 ```
 src/
-├── components/     # Header, Footer components
+├── components/     # Header, navigation, footer, theme, and current interests
 ├── content/blog/   # Blog posts (Markdown)
+├── content/work/   # Portfolio projects (Markdown)
+├── data/           # Reading list and quotes
 ├── layouts/        # Base layout
 ├── pages/          # Page routes
 │   ├── index.astro
@@ -38,7 +41,7 @@ src/
 │   ├── reading.astro
 │   ├── blog/
 │   └── work/
-└── styles/         # SCSS stylesheets
+└── styles/         # Shared CSS stylesheet
 public/
 └── images/         # Static images
 ```
@@ -72,6 +75,6 @@ Post content here...
 
 ### Other Pages
 
-Quotes, reading list, and work projects are currently hardcoded in their respective page files in `src/pages/`. Edit those directly.
+Quotes and the reading list live in `src/data/`. Portfolio projects live in `src/content/work/`. Archived and draft blog posts remain unpublished.
 
 small edit
