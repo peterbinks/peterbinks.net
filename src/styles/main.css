@@ -105,21 +105,6 @@ a:hover {
   background: var(--accent);
 }
 
-/* Labels share a monospace voice; reading text stays in the sans. */
-.label,
-.nav-link,
-.section-title,
-.sidebar-title,
-.site-location,
-.site-footer,
-.section-footer,
-.back-link,
-.meta {
-  font-family: var(--font-mono);
-  font-size: var(--font-size-xs);
-  letter-spacing: 0;
-}
-
 /* Typography: hierarchy comes from weight and color, not size. */
 h1,
 h2,
@@ -230,6 +215,7 @@ blockquote {
 .site-location {
   display: block;
   color: var(--text-muted);
+  font-size: var(--font-size-sm);
 }
 
 .nav-list {
@@ -247,6 +233,7 @@ blockquote {
 
 .nav-link {
   color: var(--text-muted);
+  font-size: var(--font-size-sm);
   text-decoration: none;
 }
 
@@ -291,6 +278,7 @@ blockquote {
 
 .site-footer {
   margin-top: var(--space-9);
+  font-size: var(--font-size-sm);
   color: var(--text-muted);
 }
 
@@ -315,12 +303,14 @@ blockquote {
 }
 
 .section-title {
-  font-weight: 500;
+  font-size: var(--font-size-base);
+  letter-spacing: -0.01em;
   margin-bottom: var(--space-5);
 }
 
 .section-footer {
   margin-top: var(--space-5);
+  font-size: var(--font-size-sm);
 }
 
 .section-footer a {
@@ -416,6 +406,7 @@ blockquote {
 
 .back-link {
   display: inline-block;
+  font-size: var(--font-size-sm);
   color: var(--text-muted);
   margin-bottom: var(--space-5);
   text-decoration: none;
@@ -442,7 +433,7 @@ blockquote {
 }
 
 .sidebar-title {
-  color: var(--text-muted);
+  font-size: var(--font-size-sm);
   margin-bottom: var(--space-3);
 }
 
