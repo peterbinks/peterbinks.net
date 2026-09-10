@@ -2,7 +2,6 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Sidebar from "../components/Sidebar.astro";
-import Scanlines from "../components/Scanlines.astro";
 import "../styles/main.css";
 
 interface Props {
@@ -11,7 +10,7 @@ interface Props {
   showSidebar?: boolean;
 }
 
-const { title = "PETERBINKS.NET", description = "Design Engineer // Chicago, IL", showSidebar = true } = Astro.props;
+const { title = "Home", description = "Peter Binkowski is a design engineer in Chicago, building systems and tools that bring design and engineering together.", showSidebar = true } = Astro.props;
 
 const currentPath = Astro.url.pathname;
 ---
@@ -23,22 +22,21 @@ const currentPath = Astro.url.pathname;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#1a1410" />
-    <title>Peter Binks</title>
+    <meta name="theme-color" content="#f8f7f4" />
+    <title>{title === "Home" ? "Peter Binkowski — Design Engineer" : `${title} — Peter Binkowski`}</title>
 
-    <!-- Google Fonts - Fira Code -->
+    <!-- Instrument Sans for headings, text, and navigation. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Prevent flash of wrong theme/accent -->
+    <!-- Apply the saved or system theme before the page is painted. -->
     <script is:inline>
       (function () {
         const savedTheme = localStorage.getItem("theme");
-        const savedAccent = localStorage.getItem("accent");
         const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
         // Light is default; only go dark if explicitly saved or system prefers dark
@@ -48,23 +46,20 @@ const currentPath = Astro.url.pathname;
           document.documentElement.setAttribute("data-theme", "light");
         }
 
-        if (savedAccent) {
-          document.documentElement.setAttribute("data-accent", savedAccent);
-        }
       })();
     </script>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <div class="site-wrapper">
       <Header currentPath={currentPath} />
 
-      <main class="site-main">
+      <main class="site-main" id="main-content" tabindex="-1">
         <div class="content-area">
           <slot />
         </div>
-
-        {showSidebar && <Sidebar />}
       </main>
+      {showSidebar && <Sidebar />}
 
       <Footer />
     </div>

@@ -1,5 +1,4 @@
 ---
-// Terminal-style navigation with bracket links and glitch hover effect
 interface Props {
   currentPath?: string;
 }
@@ -7,11 +6,11 @@ interface Props {
 const { currentPath = "" } = Astro.props;
 
 const navItems = [
-  { href: "/", label: "HOME" },
-  { href: "/about", label: "ABOUT" },
-  { href: "/blog", label: "BLOG" },
-  { href: "/work", label: "PORTFOLIO" },
-  { href: "/quotes", label: "QUOTES" },
+  { href: "/work", label: "Work" },
+  { href: "/blog", label: "Writing" },
+  { href: "/about", label: "About" },
+  { href: "/reading", label: "Reading" },
+  { href: "/quotes", label: "Quotes" },
 ];
 
 function isActive(href: string, current: string): boolean {
@@ -20,15 +19,15 @@ function isActive(href: string, current: string): boolean {
 }
 ---
 
-<nav class="nav-container">
+<nav class="nav-container" aria-label="Main navigation">
   <ul class="nav-list">
     {
       navItems.map((item) => (
         <li>
           <a
             href={item.href}
-            class:list={["nav-link", "glitch", { active: isActive(item.href, currentPath) }]}
-            data-text={item.label}
+            class:list={["nav-link", { active: isActive(item.href, currentPath) }]}
+            aria-current={isActive(item.href, currentPath) ? "page" : undefined}
           >
             {item.label}
           </a>

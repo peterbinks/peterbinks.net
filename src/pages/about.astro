@@ -8,18 +8,24 @@ const career = [
 ];
 ---
 
-<BaseLayout title="ABOUT.TXT">
-  <section class="about-content">
-    <div class="terminal-box" data-title="Profile">
+<BaseLayout title="About">
+  <header class="page-header">
+    <p class="eyebrow">A little introduction</p>
+    <h1>About me.</h1>
+  </header>
+  <section class="about-content prose">
+    <section class="about-section">
+      <h2>Hi, I’m Peter.</h2>
       <p>My name is Peter. I make websites. I live in Chicago.</p>
       <p>
         I enjoy a well brewed cup of coffee, rainy days, and the oxford comma. When not behind a screen I am reading a <a
           href="/reading">book</a
         >, making music on my drum kit, or spending quality time with my wife.
       </p>
-    </div>
+    </section>
 
-    <div class="terminal-box" data-title="Interests">
+    <section class="about-section">
+      <h2>A few things I’m into</h2>
       <ul class="interest-list">
         <li>Typography & Type Design</li>
         <li>Web Animations & Interactions</li>
@@ -27,82 +33,84 @@ const career = [
         <li>Accessibility</li>
         <li>Donuts</li>
       </ul>
-    </div>
+    </section>
 
-    <div class="terminal-box" data-title="Experience">
-      <ul class="list-dotted">
+    <section class="about-section">
+      <h2>Where I’ve been</h2>
+      <ul class="career-list">
         {
           career.map((job) => (
             <li>
               <span class="title">{job.title}</span>
-              <span class="leader" />
               <span class="action">{job.tags}</span>
             </li>
           ))
         }
       </ul>
-    </div>
+    </section>
 
-    <div class="terminal-box" data-title="Colophon">
+    <section class="about-section">
+      <h2>Colophon</h2>
       <p>
         This site is the hundredth revision of peterbinks.net. I've used half a dozen CMSs, and put up a bunch of junk
         over the years.
       </p>
       <p>
-        This iteration is built on <a href="https://astro.build">Astro</a> with a terminal/cyberpunk aesthetic. Pure monospace
-        typography. No frameworks, just vibes.
+        Built with <a href="https://astro.build">Astro</a>, set in Instrument Sans.
+        A little space for my work, writing, and things worth keeping.
       </p>
-    </div>
+    </section>
 
-    <div class="terminal-box" data-title="Contact">
+    <section class="about-section">
+      <h2>Say hello</h2>
       <p>
         The best way to reach me is via <a href="mailto:peter@peterbinks.net">email</a>. You can also find me on <a
           href="https://twitter.com/peterbinks">Twitter</a
         > or <a href="https://github.com/peterbinks">GitHub</a>.
       </p>
-    </div>
+    </section>
   </section>
 </BaseLayout>
 
 <style>
-  .page-header {
-    margin-bottom: var(--space-5);
+  .about-section + .about-section {
+    margin-top: var(--space-7);
+    padding-top: var(--space-7);
+    border-top: 1px solid var(--border-subtle);
   }
 
-  .page-header h1 {
-    margin-bottom: var(--space-2);
+  .about-section h2 {
+    margin-top: 0;
   }
 
-  .page-description {
-    color: var(--text-muted);
-    font-size: var(--font-size-sm);
-  }
-
-  .about-content {
-    margin-top: var(--space-5);
-  }
-
-  .section-heading {
-    font-size: var(--font-size-base);
-    color: var(--accent);
-    margin-bottom: var(--space-4);
-    text-transform: none;
-    letter-spacing: normal;
-  }
-
-  .interest-list {
+  .interest-list,
+  .career-list {
     list-style: none;
     padding: 0;
     margin: 0;
   }
 
-  .interest-list li {
-    color: var(--text-secondary);
-    margin-bottom: var(--space-2);
+  .interest-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-5);
   }
 
-  .interest-list li::before {
-    content: "- ";
-    color: var(--accent);
+  .career-list li {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-2) var(--space-5);
+    padding: var(--space-3) 0;
+    margin: 0;
+  }
+
+  .career-list .title {
+    color: var(--text-primary);
+  }
+
+  .career-list .action {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
   }
 </style>
